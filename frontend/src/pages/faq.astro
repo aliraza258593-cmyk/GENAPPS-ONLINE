@@ -2,123 +2,67 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import AuthModal from "../components/AuthModal.astro";
 
 const faqs = [
     {
-        q: "What is GENAPPS.ONLINE?",
-        a: "GENAPPS.ONLINE is an AI-powered full-stack website generator that transforms your text descriptions into beautiful, production-ready websites built with React and Tailwind CSS.",
+        q: "What is GenApps.online?",
+        a: "GenApps.online is an AI-powered platform that generates production-ready React websites from natural language descriptions.",
     },
     {
-        q: "How does the AI generation work?",
-        a: "Simply describe the website you want in natural language. Our AI models analyze your request and generate complete, functional code including layouts, components, and styling.",
+        q: "How does it work?",
+        a: "Describe your website, select an AI model, and our system generates complete React + Tailwind CSS code in seconds.",
     },
     {
-        q: "What technologies are used in generated websites?",
-        a: "Generated websites use React for the UI components and Tailwind CSS for styling. The code is clean, modern, and follows best practices.",
-    },
-    {
-        q: "How many credits do I get?",
-        a: "Free users receive 5 credits per day that reset at midnight UTC. Pro and Plus subscribers have unlimited builds with no credit restrictions.",
+        q: "Can I edit the generated code?",
+        a: "Yes, you own all generated code. Export it and modify as needed.",
     },
     {
         q: "What AI models are available?",
-        a: "We offer multiple AI models including GPT-5.2, Gemini Flash, Claude Opus 4.5, Gemini 3 Pro, and more. Premium users can access all models.",
+        a: "We offer 9 AI models including GPT-5.2, Claude 4.5, Gemini and more.",
     },
     {
-        q: "What is Deep Thinking mode?",
-        a: "Deep Thinking mode uses advanced AI reasoning for complex projects. It takes slightly longer but produces more sophisticated and detailed websites. Available for Plus subscribers.",
+        q: "How many websites can I generate?",
+        a: "Free users get 5 generations per day. Pro subscribers get unlimited.",
     },
     {
-        q: "Can I export my generated websites?",
-        a: "Pro and Plus users can export directly to GitHub or deploy to Vercel. Free users can preview in new tabs and copy the generated code.",
-    },
-    {
-        q: "Is there a watermark on free builds?",
-        a: 'Yes, free builds include a small "Built with GENAPPS.ONLINE" watermark. Upgrading to Pro or Plus removes all watermarks.',
-    },
-    {
-        q: "Can I customize the generated code?",
-        a: "Absolutely! The generated code is yours to modify. You can edit it locally, integrate it into existing projects, or use it as a starting point.",
-    },
-    {
-        q: "Do you offer refunds?",
-        a: "Yes, we offer a 7-day money-back guarantee for all paid subscriptions. Contact support if you are not satisfied.",
-    },
-    {
-        q: "Is my data secure?",
-        a: "Yes, we take security seriously. Your prompts and generated code are encrypted and never shared. See our Privacy Policy for details.",
-    },
-    {
-        q: "Can I use generated websites commercially?",
-        a: "Yes, you own full rights to websites you generate. Use them for personal projects, clients, or commercial purposes.",
+        q: "Is there a refund policy?",
+        a: "Yes, we offer a 7-day money-back guarantee for new Pro subscriptions.",
     },
 ];
 ---
 
 <Layout title="FAQ">
     <Header />
-    <AuthModal />
 
-    <main class="pt-24 min-h-screen">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="pt-14 min-h-screen">
+        <div class="container-premium py-16 lg:py-24">
             <div class="text-center mb-12">
-                <h1
-                    class="text-4xl sm:text-5xl font-bold font-display text-white mb-4"
-                >
-                    Frequently Asked <span class="gradient-text">Questions</span
-                    >
+                <h1 class="text-2xl lg:text-3xl font-semibold text-white mb-3">
+                    FAQ
                 </h1>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    Everything you need to know about GENAPPS.ONLINE
+                <p class="text-sm text-[#666666]">
+                    Answers to common questions
                 </p>
             </div>
 
-            <div class="space-y-4">
+            <div class="max-w-2xl mx-auto space-y-3">
                 {
-                    faqs.map((faq, i) => (
-                        <div class="glass rounded-xl overflow-hidden">
-                            <button
-                                class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left"
-                                data-index={i}
-                            >
-                                <span class="font-medium text-white pr-4">
-                                    {faq.q}
-                                </span>
-                                <svg
-                                    class="w-5 h-5 text-gray-400 transition-transform flex-shrink-0 faq-icon"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 9l-7 7-7-7"
-                                    />
-                                </svg>
-                            </button>
-                            <div class="faq-content hidden px-6 pb-5">
-                                <p class="text-gray-400 leading-relaxed">
-                                    {faq.a}
-                                </p>
+                    faqs.map((faq) => (
+                        <div class="p-5 bg-[#0a0a0a] border border-[rgba(255,255,255,0.06)] rounded-xl">
+                            <div class="text-sm text-white mb-2">{faq.q}</div>
+                            <div class="text-xs text-[#666666] leading-relaxed">
+                                {faq.a}
                             </div>
                         </div>
                     ))
                 }
             </div>
 
-            <div class="mt-16 text-center glass rounded-2xl p-8">
-                <h2 class="text-2xl font-bold text-white mb-4">
-                    Still have questions?
-                </h2>
-                <p class="text-gray-400 mb-6">
-                    We're here to help. Reach out to our support team.
-                </p>
+            <div class="text-center mt-12">
+                <p class="text-xs text-[#666666] mb-4">Still have questions?</p>
                 <a
                     href="/contact"
-                    class="btn-primary px-8 py-3 rounded-xl text-white font-semibold inline-block"
+                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-[#e5e5e5] transition-colors"
                 >
                     Contact Support
                 </a>
@@ -128,20 +72,3 @@ const faqs = [
 
     <Footer />
 </Layout>
-
-<script>
-    document.querySelectorAll(".faq-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const content = btn.nextElementSibling;
-            const icon = btn.querySelector(".faq-icon");
-
-            if (content?.classList.contains("hidden")) {
-                content.classList.remove("hidden");
-                icon?.classList.add("rotate-180");
-            } else {
-                content?.classList.add("hidden");
-                icon?.classList.remove("rotate-180");
-            }
-        });
-    });
-</script>

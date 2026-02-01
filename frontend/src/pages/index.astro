@@ -3,6 +3,52 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import AuthModal from "../components/AuthModal.astro";
+
+const testimonials = [
+    {
+        text: "I was able to build this web app I've been trying to build for the last year. It has everything I need. I tried them all Bolt, Lovable, Replit, V0... but GenApps actually did it!",
+        name: "Alex Thompson",
+        title: "Founder, TechStart",
+        platform: "LinkedIn",
+    },
+    {
+        text: "The builder is really cool. I have gotten further in 5 days than I have in a year.",
+        name: "Chris R. Pettigrew, Sr",
+        title: "President, Inteliese LLC",
+        platform: "Email",
+    },
+    {
+        text: "Generated a full-featured dashboard in less than 25 minutes. Would have taken a team weeks.",
+        name: "Haroon Hameed",
+        title: "MD, MBA Candidate",
+        platform: "Twitter",
+    },
+    {
+        text: "Finally, an AI builder that actually understands what I want. The code quality is production-ready.",
+        name: "Sarah Chen",
+        title: "Product Designer",
+        platform: "Twitter",
+    },
+    {
+        text: "I built my entire SaaS landing page in 20 minutes. The export to Vercel feature is game-changing.",
+        name: "Marcus Johnson",
+        title: "Indie Hacker",
+        platform: "Twitter",
+    },
+    {
+        text: "Been using GenApps for all my client work. Saves me hours on every project.",
+        name: "Emily Rodriguez",
+        title: "Freelance Developer",
+        platform: "Email",
+    },
+];
+
+const stats = [
+    { value: "50,000+", label: "Websites Generated" },
+    { value: "10,000+", label: "Happy Developers" },
+    { value: "9", label: "AI Models" },
+    { value: "30s", label: "Avg. Generation Time" },
+];
 ---
 
 <Layout title="AI Website Builder">
@@ -11,284 +57,597 @@ import AuthModal from "../components/AuthModal.astro";
 
     <main class="pt-16">
         <!-- Hero Section -->
-        <section class="relative overflow-hidden">
+        <section
+            class="relative min-h-[90vh] flex items-center overflow-hidden"
+        >
+            <!-- Animated gradient background -->
             <div
-                class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50"
+                class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/10"
             >
             </div>
-            <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-purple-500/10 rounded-full blur-[150px] pointer-events-none"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-[600px] h-[400px] bg-pink-500/10 rounded-full blur-[120px] pointer-events-none"
+            >
+            </div>
+
+            <div class="relative container-premium py-20 lg:py-28">
                 <div class="text-center max-w-4xl mx-auto">
+                    <!-- Badge -->
                     <div
-                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 mb-8"
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 mb-8 animate-fade-in-up"
                     >
-                        <span
-                            class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
-                        ></span>
-                        <span class="text-sm font-semibold text-indigo-700"
-                            >Now with 9 AI Models</span
+                        <div class="pulse-dot"></div>
+                        <span class="text-sm text-purple-300"
+                            >AI-Powered Full-Stack Website Builder</span
                         >
                     </div>
 
+                    <!-- Main Heading -->
                     <h1
-                        class="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-6"
+                        class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] mb-6 animate-fade-in-up"
+                        style="animation-delay: 0.1s;"
                     >
-                        Build websites<br />
-                        <span class="gradient-text-hero"
-                            >10x faster with AI</span
+                        <span class="text-white">Don't just think it</span><br
+                        />
+                        <span
+                            class="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
+                            >Build</span
                         >
+                        <span class="text-white"> it</span>
                     </h1>
 
+                    <!-- Subheading -->
                     <p
-                        class="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed"
+                        class="text-lg lg:text-xl text-[#a0a0a8] max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
+                        style="animation-delay: 0.2s;"
                     >
-                        Transform your ideas into stunning, production-ready
-                        React websites in seconds. No coding required.
+                        Generate stunning, <strong class="text-white"
+                            >production-ready full-stack websites</strong
+                        > in seconds. Complete with working navigation, forms, animations,
+                        and responsive design.
                     </p>
 
+                    <!-- Main CTA Box -->
                     <div
-                        class="flex flex-col sm:flex-row items-center justify-center gap-4"
+                        class="max-w-2xl mx-auto mb-10 animate-fade-in-up"
+                        style="animation-delay: 0.3s;"
                     >
-                        <a
-                            href="/builder"
-                            class="btn-primary text-lg px-8 py-4 flex items-center gap-2"
+                        <div
+                            class="bg-[#121218]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl shadow-purple-500/5"
                         >
-                            <span>Start Building Free</span>
+                            <div class="relative">
+                                <input
+                                    type="text"
+                                    id="hero-prompt"
+                                    class="w-full px-5 py-4 bg-[#18181f] border border-white/5 rounded-xl text-white text-base placeholder-[#55555d] focus:outline-none focus:border-purple-500/30 focus:ring-2 focus:ring-purple-500/10 transition-all"
+                                    placeholder="Describe your website... e.g., A modern SaaS landing page with pricing"
+                                />
+                                <button
+                                    id="hero-generate-btn"
+                                    class="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold rounded-lg hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg shadow-purple-500/25"
+                                >
+                                    Generate →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-6 text-sm animate-fade-in-up"
+                        style="animation-delay: 0.4s;"
+                    >
+                        <div class="flex items-center gap-2 text-[#7a7a82]">
                             <svg
-                                class="w-5 h-5"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
+                                class="w-4 h-4 text-green-400"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
                             >
                                 <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
                             </svg>
-                        </a>
-                        <a
-                            href="/templates"
-                            class="btn-secondary text-lg px-8 py-4"
-                        >
-                            View Templates
-                        </a>
-                    </div>
-
-                    <p class="text-sm text-gray-500 mt-6">
-                        ✨ 5 free generations daily • No credit card required
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Logos Section -->
-        <section class="py-16 border-y border-gray-100 bg-gray-50/50">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <p class="text-center text-sm font-medium text-gray-500 mb-8">
-                    TRUSTED BY DEVELOPERS FROM
-                </p>
-                <div
-                    class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-60"
-                >
-                    <span class="text-2xl font-bold text-gray-400">Google</span>
-                    <span class="text-2xl font-bold text-gray-400"
-                        >Microsoft</span
-                    >
-                    <span class="text-2xl font-bold text-gray-400">Meta</span>
-                    <span class="text-2xl font-bold text-gray-400">Amazon</span>
-                    <span class="text-2xl font-bold text-gray-400">Netflix</span
-                    >
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
-                        Everything you need to build
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Powerful features that make website creation effortless
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card p-8">
-                        <div class="feature-icon feature-icon-purple mb-6">
-                            ⚡
+                            <span>No credit card required</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">
-                            Lightning Fast
-                        </h3>
-                        <p class="text-gray-600">
-                            Generate complete websites in under 30 seconds with
-                            our optimized AI models.
-                        </p>
-                    </div>
-                    <div class="card p-8">
-                        <div class="feature-icon feature-icon-blue mb-6">
-                            🎨
+                        <div class="flex items-center gap-2 text-[#7a7a82]">
+                            <svg
+                                class="w-4 h-4 text-green-400"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>5 free builds per day</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">
-                            Beautiful Design
-                        </h3>
-                        <p class="text-gray-600">
-                            Every website is crafted with modern aesthetics and
-                            responsive layouts.
-                        </p>
-                    </div>
-                    <div class="card p-8">
-                        <div class="feature-icon feature-icon-green mb-6">
-                            💻
+                        <div class="flex items-center gap-2 text-[#7a7a82]">
+                            <svg
+                                class="w-4 h-4 text-green-400"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Deploy to Vercel instantly</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">
-                            Clean Code
-                        </h3>
-                        <p class="text-gray-600">
-                            Export production-ready React + Tailwind CSS code
-                            you can customize.
-                        </p>
-                    </div>
-                    <div class="card p-8">
-                        <div class="feature-icon feature-icon-orange mb-6">
-                            🚀
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">
-                            One-Click Deploy
-                        </h3>
-                        <p class="text-gray-600">
-                            Deploy directly to Vercel or export to GitHub with a
-                            single click.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How it Works -->
-        <section class="py-24 bg-gradient-to-br from-gray-50 to-white">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
-                        How it works
-                    </h2>
-                    <p class="text-xl text-gray-600">
-                        Three simple steps to your dream website
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-indigo-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-indigo-500/30"
-                        >
-                            1
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">
-                            Describe your vision
-                        </h3>
-                        <p class="text-gray-600">
-                            Tell our AI what kind of website you want using
-                            natural language.
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-purple-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/30"
-                        >
-                            2
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">
-                            AI generates code
-                        </h3>
-                        <p class="text-gray-600">
-                            Our AI creates a complete React + Tailwind website
-                            in seconds.
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-pink-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-pink-500/30"
-                        >
-                            3
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">
-                            Preview & deploy
-                        </h3>
-                        <p class="text-gray-600">
-                            Preview instantly, then deploy to Vercel or export
-                            code to GitHub.
-                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Stats Section -->
-        <section class="py-20 bg-gray-900 text-white">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div>
-                        <div class="text-4xl lg:text-5xl font-black mb-2">
-                            50K+
+        <section class="py-16 border-t border-white/5">
+            <div class="container-premium">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    {
+                        stats.map((stat) => (
+                            <div class="text-center">
+                                <div class="text-3xl lg:text-4xl font-bold text-white mb-1">
+                                    {stat.value}
+                                </div>
+                                <div class="text-sm text-[#7a7a82]">
+                                    {stat.label}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates Section -->
+        <section class="py-24 border-t border-white/5">
+            <div class="container-premium">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+                        Start with a template or go custom
+                    </h2>
+                    <p class="text-[#7a7a82] max-w-lg mx-auto">
+                        Choose a starting point or describe exactly what you
+                        need. Our AI handles the rest.
+                    </p>
+                </div>
+
+                <!-- Template Grid -->
+                <div
+                    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                >
+                    <a href="/builder?template=ecommerce" class="group block">
+                        <div
+                            class="aspect-[4/3] bg-gradient-to-br from-purple-900/20 to-pink-900/10 rounded-xl border border-white/8 overflow-hidden mb-3 transition-all group-hover:border-purple-500/30 group-hover:shadow-lg group-hover:shadow-purple-500/10"
+                        >
+                            <div
+                                class="w-full h-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform"
+                            >
+                                🛒
+                            </div>
                         </div>
-                        <div class="text-gray-400">Websites Built</div>
+                        <p
+                            class="text-sm text-[#a0a0a8] group-hover:text-white transition-colors font-medium"
+                        >
+                            E-commerce Store
+                        </p>
+                        <p class="text-xs text-[#55555d]">
+                            Full-stack with cart & checkout
+                        </p>
+                    </a>
+                    <a href="/builder?template=saas" class="group block">
+                        <div
+                            class="aspect-[4/3] bg-gradient-to-br from-blue-900/20 to-cyan-900/10 rounded-xl border border-white/8 overflow-hidden mb-3 transition-all group-hover:border-blue-500/30 group-hover:shadow-lg group-hover:shadow-blue-500/10"
+                        >
+                            <div
+                                class="w-full h-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform"
+                            >
+                                🚀
+                            </div>
+                        </div>
+                        <p
+                            class="text-sm text-[#a0a0a8] group-hover:text-white transition-colors font-medium"
+                        >
+                            SaaS Landing
+                        </p>
+                        <p class="text-xs text-[#55555d]">
+                            Hero, features, pricing, FAQ
+                        </p>
+                    </a>
+                    <a href="/builder?template=portfolio" class="group block">
+                        <div
+                            class="aspect-[4/3] bg-gradient-to-br from-pink-900/20 to-orange-900/10 rounded-xl border border-white/8 overflow-hidden mb-3 transition-all group-hover:border-pink-500/30 group-hover:shadow-lg group-hover:shadow-pink-500/10"
+                        >
+                            <div
+                                class="w-full h-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform"
+                            >
+                                🎨
+                            </div>
+                        </div>
+                        <p
+                            class="text-sm text-[#a0a0a8] group-hover:text-white transition-colors font-medium"
+                        >
+                            Portfolio
+                        </p>
+                        <p class="text-xs text-[#55555d]">
+                            Showcase your work beautifully
+                        </p>
+                    </a>
+                    <a href="/builder?template=dashboard" class="group block">
+                        <div
+                            class="aspect-[4/3] bg-gradient-to-br from-green-900/20 to-emerald-900/10 rounded-xl border border-white/8 overflow-hidden mb-3 transition-all group-hover:border-green-500/30 group-hover:shadow-lg group-hover:shadow-green-500/10"
+                        >
+                            <div
+                                class="w-full h-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform"
+                            >
+                                📊
+                            </div>
+                        </div>
+                        <p
+                            class="text-sm text-[#a0a0a8] group-hover:text-white transition-colors font-medium"
+                        >
+                            Admin Dashboard
+                        </p>
+                        <p class="text-xs text-[#55555d]">
+                            Charts, tables, sidebar nav
+                        </p>
+                    </a>
+                    <a href="/builder?template=blog" class="group block">
+                        <div
+                            class="aspect-[4/3] bg-gradient-to-br from-yellow-900/20 to-amber-900/10 rounded-xl border border-white/8 overflow-hidden mb-3 transition-all group-hover:border-yellow-500/30 group-hover:shadow-lg group-hover:shadow-yellow-500/10"
+                        >
+                            <div
+                                class="w-full h-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform"
+                            >
+                                📝
+                            </div>
+                        </div>
+                        <p
+                            class="text-sm text-[#a0a0a8] group-hover:text-white transition-colors font-medium"
+                        >
+                            Blog & Magazine
+                        </p>
+                        <p class="text-xs text-[#55555d]">
+                            Article layouts & categories
+                        </p>
+                    </a>
+                    <a href="/builder?template=restaurant" class="group block">
+                        <div
+                            class="aspect-[4/3] bg-gradient-to-br from-red-900/20 to-orange-900/10 rounded-xl border border-white/8 overflow-hidden mb-3 transition-all group-hover:border-red-500/30 group-hover:shadow-lg group-hover:shadow-red-500/10"
+                        >
+                            <div
+                                class="w-full h-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform"
+                            >
+                                🍕
+                            </div>
+                        </div>
+                        <p
+                            class="text-sm text-[#a0a0a8] group-hover:text-white transition-colors font-medium"
+                        >
+                            Restaurant
+                        </p>
+                        <p class="text-xs text-[#55555d]">
+                            Menu, reservations, gallery
+                        </p>
+                    </a>
+                    <a href="/builder?template=agency" class="group block">
+                        <div
+                            class="aspect-[4/3] bg-gradient-to-br from-indigo-900/20 to-violet-900/10 rounded-xl border border-white/8 overflow-hidden mb-3 transition-all group-hover:border-indigo-500/30 group-hover:shadow-lg group-hover:shadow-indigo-500/10"
+                        >
+                            <div
+                                class="w-full h-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform"
+                            >
+                                🏢
+                            </div>
+                        </div>
+                        <p
+                            class="text-sm text-[#a0a0a8] group-hover:text-white transition-colors font-medium"
+                        >
+                            Agency
+                        </p>
+                        <p class="text-xs text-[#55555d]">
+                            Services, case studies, team
+                        </p>
+                    </a>
+                    <a href="/templates" class="group block">
+                        <div
+                            class="aspect-[4/3] bg-[#121218] rounded-xl border border-white/8 overflow-hidden mb-3 transition-all group-hover:border-white/20 flex items-center justify-center"
+                        >
+                            <div class="text-center">
+                                <div
+                                    class="text-2xl text-[#7a7a82] group-hover:text-white mb-1"
+                                >
+                                    →
+                                </div>
+                                <div
+                                    class="text-xs text-[#55555d] group-hover:text-[#a0a0a8]"
+                                >
+                                    View All
+                                </div>
+                            </div>
+                        </div>
+                        <p
+                            class="text-sm text-[#a0a0a8] group-hover:text-white transition-colors font-medium"
+                        >
+                            More Templates
+                        </p>
+                        <p class="text-xs text-[#55555d]">
+                            Explore 50+ templates
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-24 border-t border-white/5">
+            <div class="container-premium">
+                <div class="text-center mb-16">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-medium mb-4"
+                    >
+                        Why GenApps?
                     </div>
-                    <div>
-                        <div class="text-4xl lg:text-5xl font-black mb-2">
-                            10K+
+                    <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+                        Everything You Need, Built-In
+                    </h2>
+                    <p class="text-[#7a7a82] max-w-lg mx-auto">
+                        Powerful features to help you build and ship full-stack
+                        websites faster than ever
+                    </p>
+                </div>
+
+                <!-- Feature Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div
+                        class="p-6 bg-[#121218] border border-white/8 rounded-2xl hover:border-purple-500/20 transition-all group"
+                    >
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"
+                        >
+                            ⚡
                         </div>
-                        <div class="text-gray-400">Happy Users</div>
+                        <h3 class="text-base font-semibold text-white mb-2">
+                            30-Second Generation
+                        </h3>
+                        <p class="text-sm text-[#7a7a82] leading-relaxed">
+                            Generate complete, production-ready full-stack
+                            websites in under 30 seconds with AI
+                        </p>
                     </div>
-                    <div>
-                        <div class="text-4xl lg:text-5xl font-black mb-2">
-                            9
+                    <div
+                        class="p-6 bg-[#121218] border border-white/8 rounded-2xl hover:border-purple-500/20 transition-all group"
+                    >
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"
+                        >
+                            🎨
                         </div>
-                        <div class="text-gray-400">AI Models</div>
+                        <h3 class="text-base font-semibold text-white mb-2">
+                            Stunning Design
+                        </h3>
+                        <p class="text-sm text-[#7a7a82] leading-relaxed">
+                            Modern, responsive layouts with animations,
+                            gradients, and professional aesthetics
+                        </p>
                     </div>
-                    <div>
-                        <div class="text-4xl lg:text-5xl font-black mb-2">
-                            99%
+                    <div
+                        class="p-6 bg-[#121218] border border-white/8 rounded-2xl hover:border-purple-500/20 transition-all group"
+                    >
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"
+                        >
+                            💻
                         </div>
-                        <div class="text-gray-400">Satisfaction</div>
+                        <h3 class="text-base font-semibold text-white mb-2">
+                            Production-Ready Code
+                        </h3>
+                        <p class="text-sm text-[#7a7a82] leading-relaxed">
+                            Clean, maintainable full-stack code you can
+                            customize and deploy immediately
+                        </p>
+                    </div>
+                    <div
+                        class="p-6 bg-[#121218] border border-white/8 rounded-2xl hover:border-purple-500/20 transition-all group"
+                    >
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"
+                        >
+                            🤖
+                        </div>
+                        <h3 class="text-base font-semibold text-white mb-2">
+                            9 AI Models
+                        </h3>
+                        <p class="text-sm text-[#7a7a82] leading-relaxed">
+                            Choose from GPT-5.2, Claude 4.5, Gemini, DeepSeek,
+                            and more powerful models
+                        </p>
+                    </div>
+                    <div
+                        class="p-6 bg-[#121218] border border-white/8 rounded-2xl hover:border-purple-500/20 transition-all group"
+                    >
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"
+                        >
+                            🚀
+                        </div>
+                        <h3 class="text-base font-semibold text-white mb-2">
+                            One-Click Deploy
+                        </h3>
+                        <p class="text-sm text-[#7a7a82] leading-relaxed">
+                            Deploy directly to Vercel or export to GitHub with a
+                            single click
+                        </p>
+                    </div>
+                    <div
+                        class="p-6 bg-[#121218] border border-white/8 rounded-2xl hover:border-purple-500/20 transition-all group"
+                    >
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform"
+                        >
+                            ✨
+                        </div>
+                        <h3 class="text-base font-semibold text-white mb-2">
+                            Working Interactivity
+                        </h3>
+                        <p class="text-sm text-[#7a7a82] leading-relaxed">
+                            Navigation, forms, modals, tabs, accordions - all
+                            fully functional out of the box
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section class="py-24 border-t border-white/5 overflow-hidden">
+            <div class="container-premium">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+                        Loved by Builders Worldwide
+                    </h2>
+                    <p class="text-[#7a7a82]">
+                        Join thousands of developers and entrepreneurs building
+                        with GenApps
+                    </p>
+                </div>
+            </div>
+
+            <!-- Scrolling Testimonials -->
+            <div class="relative">
+                <div class="flex gap-5 animate-scroll px-4">
+                    {
+                        testimonials.map((t) => (
+                            <div class="flex-shrink-0 w-[380px] p-6 bg-[#121218] border border-white/8 rounded-2xl">
+                                <div class="flex gap-1 text-yellow-400 mb-4">
+                                    ★★★★★
+                                </div>
+                                <p class="text-sm text-[#a0a0a8] leading-relaxed mb-5">
+                                    "{t.text}"
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="text-sm font-medium text-white">
+                                            {t.name}
+                                        </div>
+                                        <div class="text-xs text-[#7a7a82]">
+                                            {t.title}
+                                        </div>
+                                    </div>
+                                    <div class="text-xs text-[#55555d]">
+                                        via {t.platform}
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                    {
+                        testimonials.map((t) => (
+                            <div class="flex-shrink-0 w-[380px] p-6 bg-[#121218] border border-white/8 rounded-2xl">
+                                <div class="flex gap-1 text-yellow-400 mb-4">
+                                    ★★★★★
+                                </div>
+                                <p class="text-sm text-[#a0a0a8] leading-relaxed mb-5">
+                                    "{t.text}"
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="text-sm font-medium text-white">
+                                            {t.name}
+                                        </div>
+                                        <div class="text-xs text-[#7a7a82]">
+                                            {t.title}
+                                        </div>
+                                    </div>
+                                    <div class="text-xs text-[#55555d]">
+                                        via {t.platform}
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
         <!-- CTA Section -->
-        <section class="py-24 bg-gradient-to-r from-indigo-600 to-purple-600">
-            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    Ready to build something amazing?
-                </h2>
-                <p class="text-xl text-indigo-100 mb-10">
-                    Join thousands of developers creating stunning websites with
-                    AI.
-                </p>
-                <a
-                    href="/builder"
-                    class="inline-flex items-center gap-2 px-10 py-5 bg-white text-indigo-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all"
-                >
-                    <span>Get Started Free</span>
-                    <svg
-                        class="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+        <section class="py-24 border-t border-white/5">
+            <div class="container-premium">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+                        Ready to build something amazing?
+                    </h2>
+                    <p class="text-lg text-[#7a7a82] mb-8">
+                        Start building for free. No credit card required.
+                        Upgrade anytime.
+                    </p>
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-4"
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
-                </a>
+                        <a
+                            href="/builder"
+                            class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-base font-semibold rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg shadow-purple-500/25"
+                        >
+                            Start Building Free →
+                        </a>
+                        <a
+                            href="/pricing"
+                            class="px-6 py-4 bg-white/5 text-white border border-white/10 rounded-xl hover:bg-white/10 transition-all font-medium"
+                        >
+                            View Pricing
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <Footer />
 </Layout>
+
+<style>
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-scroll {
+        animation: scroll 50s linear infinite;
+    }
+
+    .animate-scroll:hover {
+        animation-play-state: paused;
+    }
+</style>
+
+<script is:inline>
+    document
+        .getElementById("hero-generate-btn")
+        ?.addEventListener("click", function () {
+            var prompt = document.getElementById("hero-prompt")?.value;
+            if (prompt) {
+                window.location.href =
+                    "/builder?prompt=" + encodeURIComponent(prompt);
+            } else {
+                window.location.href = "/builder";
+            }
+        });
+
+    document
+        .getElementById("hero-prompt")
+        ?.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                document.getElementById("hero-generate-btn")?.click();
+            }
+        });
+</script>

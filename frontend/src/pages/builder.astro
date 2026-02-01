@@ -4,46 +4,72 @@ import Header from "../components/Header.astro";
 import AuthModal from "../components/AuthModal.astro";
 
 const models = [
-  { id: "gemini-flash", name: "Gemini Flash", badge: "Free" },
-  { id: "gpt-5.2", name: "GPT-5.2", badge: "Pro" },
-  { id: "claude-opus-4.5", name: "Claude Opus 4.5", badge: "Pro" },
+  {
+    id: "gemini-flash",
+    name: "Gemini Flash",
+    badge: "Free",
+    icon: "✨",
+    description: "Fast & Free",
+  },
+  {
+    id: "gpt-5.2",
+    name: "GPT-5.2",
+    badge: "Popular",
+    icon: "🚀",
+    description: "Best quality",
+  },
+  {
+    id: "claude-opus-4.5",
+    name: "Claude 4.5",
+    badge: "Pro",
+    icon: "🧠",
+    description: "Creative",
+  },
+  {
+    id: "deepseek",
+    name: "DeepSeek",
+    badge: "New",
+    icon: "🔮",
+    description: "Powerful",
+  },
 ];
 
 const templates = [
   {
-    name: "E-commerce Store",
+    name: "E-commerce",
     icon: "🛒",
     prompt:
-      "Create a modern e-commerce store with product grid, cart, and checkout",
+      "Create a modern e-commerce store with product grid, cart, checkout, and customer reviews",
   },
   {
     name: "SaaS Landing",
     icon: "🚀",
     prompt:
-      "Build a SaaS landing page with hero, features, pricing, and testimonials",
+      "Build a SaaS landing page with hero, features grid, pricing tables, testimonials, and FAQ",
   },
   {
     name: "Portfolio",
     icon: "🎨",
     prompt:
-      "Design a creative portfolio with project gallery and about section",
+      "Design a creative portfolio with project gallery, about section, skills, and contact form",
   },
   {
     name: "Dashboard",
     icon: "📊",
     prompt:
-      "Create an admin dashboard with charts, tables, and sidebar navigation",
+      "Create an admin dashboard with charts, tables, sidebar navigation, and notifications",
   },
   {
     name: "Blog",
     icon: "📝",
     prompt:
-      "Build a modern blog with article cards, categories, and newsletter signup",
+      "Build a modern blog with article cards, categories, search, and newsletter signup",
   },
   {
     name: "Restaurant",
     icon: "🍕",
-    prompt: "Design a restaurant website with menu, reservations, and gallery",
+    prompt:
+      "Design a restaurant website with menu, reservations, gallery, and customer reviews",
   },
 ];
 ---
@@ -52,195 +78,81 @@ const templates = [
   <Header />
   <AuthModal />
 
-  <main class="pt-24 pb-16 min-h-screen bg-gradient-to-b from-gray-50 to-white">
-    <div class="max-w-5xl mx-auto px-6 lg:px-8">
-      <!-- Hero -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-          What do you want to build?
+  <main class="pt-16 min-h-screen">
+    <div class="container-premium py-12 lg:py-16">
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 mb-5"
+        >
+          <div class="pulse-dot"></div>
+          <span class="text-sm text-purple-300">AI Website Builder</span>
+        </div>
+        <h1 class="text-3xl lg:text-4xl font-bold text-white mb-3">
+          What do you want to <span
+            class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+            >build</span
+          >?
         </h1>
-        <p class="text-xl text-gray-600">
-          Describe your website and AI will create it in seconds
+        <p class="text-[#7a7a82] max-w-lg mx-auto">
+          Describe your website in detail and our AI will generate a stunning,
+          production-ready full-stack website
         </p>
       </div>
 
       <!-- Main Builder Card -->
-      <div
-        class="bg-white rounded-2xl border border-gray-200 p-8 shadow-xl shadow-gray-200/50 mb-12"
-      >
-        <!-- Model & Options Row -->
+      <div class="max-w-2xl mx-auto mb-10">
         <div
-          class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6"
+          class="bg-[#121218]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 lg:p-8 shadow-xl"
         >
-          <div class="flex items-center gap-4">
-            <select
-              id="model-select"
-              class="px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-700 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+          <!-- Prompt Input -->
+          <div class="mb-6">
+            <label class="block text-sm text-white mb-3 font-medium"
+              >Describe your website in detail</label
             >
+            <textarea
+              id="prompt-input"
+              rows="5"
+              class="w-full px-4 py-4 bg-[#18181f] border border-white/8 rounded-xl text-white text-base placeholder-[#55555d] focus:outline-none focus:border-purple-500/30 focus:ring-2 focus:ring-purple-500/10 transition-all resize-none"
+              placeholder="Be specific! E.g., 'A modern SaaS landing page for a project management tool. Include a hero section with a demo video placeholder, 6 feature cards with icons, a pricing section with 3 tiers, customer testimonials with photos, an FAQ accordion, and a footer with newsletter signup. Use a dark purple theme with gradient accents.'"
+            ></textarea>
+            <p class="text-xs text-[#55555d] mt-2">
+              💡 Tip: The more detail you provide, the better the result.
+              Mention sections, colors, features, and style preferences.
+            </p>
+          </div>
+
+          <!-- Model Selection -->
+          <div class="mb-6">
+            <label class="block text-sm text-white mb-3 font-medium"
+              >Choose AI Model</label
+            >
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {
-                models.map((model) => (
-                  <option value={model.id}>
-                    {model.name} ({model.badge})
-                  </option>
+                models.map((model, index) => (
+                  <button
+                    data-model={model.id}
+                    class={`model-btn flex flex-col items-center gap-1 p-4 rounded-xl text-center transition-all ${index === 0 ? "bg-gradient-to-br from-purple-600/20 to-pink-600/20 border-2 border-purple-500/50 shadow-lg shadow-purple-500/10" : "bg-[#18181f] border border-white/8 hover:border-white/20"}`}
+                  >
+                    <span class="text-2xl">{model.icon}</span>
+                    <span class="text-xs font-medium text-white">
+                      {model.name}
+                    </span>
+                    <span
+                      class={`text-[10px] px-2 py-0.5 rounded-full ${model.badge === "Free" ? "bg-green-500/20 text-green-400" : model.badge === "Popular" ? "bg-purple-500/20 text-purple-300" : model.badge === "New" ? "bg-blue-500/20 text-blue-300" : "bg-white/10 text-[#7a7a82]"}`}
+                    >
+                      {model.badge}
+                    </span>
+                  </button>
                 ))
               }
-            </select>
+            </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <span class="text-sm font-medium text-gray-600">Deep Thinking</span>
-            <button
-              id="deep-thinking-toggle"
-              class="relative w-12 h-7 rounded-full bg-gray-200 transition-all"
-              data-enabled="false"
-            >
-              <div
-                class="absolute left-1 top-1 w-5 h-5 rounded-full bg-white shadow transition-all"
-              >
-              </div>
-            </button>
-          </div>
-        </div>
-
-        <!-- Textarea -->
-        <textarea
-          id="prompt-input"
-          class="w-full h-36 p-5 rounded-xl bg-gray-50 border border-gray-200 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 resize-none text-base mb-6"
-          placeholder="Describe your dream website... e.g., 'Create a modern SaaS landing page with hero section, features grid, pricing table, and testimonials'"
-        ></textarea>
-
-        <!-- Bottom Row -->
-        <div
-          class="flex flex-col sm:flex-row items-center justify-between gap-4"
-        >
-          <div class="flex items-center gap-2 text-sm">
-            <span class="font-bold text-indigo-600" id="credits-display"
-              >5 Credits</span
-            >
-            <span class="text-gray-500">left today</span>
-          </div>
-
+          <!-- Generate Button -->
           <button
-            id="build-btn"
-            class="group px-8 py-4 rounded-xl bg-indigo-600 text-white font-bold text-base shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 hover:shadow-xl transition-all flex items-center gap-3"
-          >
-            <span>Build Website</span>
-            <svg
-              class="w-5 h-5 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Templates Grid -->
-      <div class="mb-12">
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">
-          Quick templates
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {
-            templates.map((template) => (
-              <button
-                class="template-btn p-4 rounded-xl bg-white border border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all text-left group"
-                data-prompt={template.prompt}
-              >
-                <div class="text-2xl mb-2">{template.icon}</div>
-                <div class="text-sm font-medium text-gray-800 group-hover:text-indigo-600 transition-colors">
-                  {template.name}
-                </div>
-              </button>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Progress Section -->
-      <div
-        id="progress-section"
-        class="hidden bg-white rounded-2xl border border-gray-200 p-6 mb-8"
-      >
-        <div class="flex items-center gap-4 mb-4">
-          <div
-            class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center"
-          >
-            <svg
-              class="w-4 h-4 text-indigo-600 animate-spin"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"></circle>
-              <path
-                class="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-          </div>
-          <div>
-            <div class="font-semibold text-gray-900" id="progress-text">
-              Generating your website...
-            </div>
-            <div class="text-sm text-gray-500">
-              This usually takes 15-30 seconds
-            </div>
-          </div>
-        </div>
-        <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-          <div
-            id="progress-bar"
-            class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
-            style="width: 0%"
-          >
-          </div>
-        </div>
-      </div>
-
-      <!-- Preview Section -->
-      <div id="preview-section" class="hidden">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-2xl font-bold text-gray-900">
-            Your website is ready! 🎉
-          </h2>
-        </div>
-
-        <div
-          class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xl mb-6"
-        >
-          <div
-            class="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200"
-          >
-            <div class="flex gap-1.5">
-              <div class="w-3 h-3 rounded-full bg-red-400"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-              <div class="w-3 h-3 rounded-full bg-green-400"></div>
-            </div>
-            <div class="flex-1 text-center text-sm text-gray-500">
-              preview.genapps.online
-            </div>
-          </div>
-          <iframe id="preview-frame" class="w-full h-[500px] bg-white"></iframe>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex flex-wrap gap-4 justify-center">
-          <button
-            id="preview-new-tab"
-            class="px-6 py-3 rounded-xl bg-gray-100 text-gray-700 font-semibold hover:bg-gray-200 transition-colors flex items-center gap-2"
+            id="generate-btn"
+            class="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-base font-semibold rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg shadow-purple-500/25 flex items-center justify-center gap-2"
           >
             <svg
               class="w-5 h-5"
@@ -252,31 +164,212 @@ const templates = [
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              ></path>
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
-            Open in New Tab
+            <span>Generate Website</span>
           </button>
-          <button
-            id="export-github"
-            class="px-6 py-3 rounded-xl bg-gray-900 text-white font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2"
+
+          <!-- Progress Bar -->
+          <div id="progress-container" class="hidden mt-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-[#7a7a82]" id="progress-status"
+                >Analyzing your requirements...</span
+              >
+              <span class="text-sm font-medium text-white" id="progress-percent"
+                >0%</span
+              >
+            </div>
+            <div class="h-2 bg-[#1e1e26] rounded-full overflow-hidden">
+              <div
+                id="progress-bar"
+                class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-500"
+                style="width: 0%"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Templates -->
+      <div class="max-w-2xl mx-auto mb-12">
+        <p class="text-sm text-[#7a7a82] mb-4 text-center">
+          Or start with a template:
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          {
+            templates.map((template) => (
+              <button
+                data-prompt={template.prompt}
+                class="template-btn p-4 bg-[#121218] border border-white/8 rounded-xl text-left hover:border-purple-500/30 hover:bg-purple-500/5 transition-all group"
+              >
+                <div class="text-2xl mb-2 group-hover:scale-110 transition-transform">
+                  {template.icon}
+                </div>
+                <div class="text-sm font-medium text-[#a0a0a8] group-hover:text-white transition-colors">
+                  {template.name}
+                </div>
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Preview Panel -->
+      <div id="preview-panel" class="max-w-5xl mx-auto hidden">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-lg font-semibold text-white">Your Website</h2>
+            <p class="text-sm text-[#7a7a82]">
+              Preview your generated website below
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              id="copy-btn"
+              class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all"
+            >
+              📋 Copy Code
+            </button>
+            <button
+              id="new-btn"
+              class="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all"
+            >
+              ✨ New
+            </button>
+            <button
+              id="export-btn"
+              class="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold rounded-lg hover:from-purple-500 hover:to-pink-500 transition-all shadow-lg shadow-purple-500/20"
+            >
+              🚀 Deploy to Vercel
+            </button>
+          </div>
+        </div>
+
+        <!-- Browser Frame -->
+        <div
+          class="bg-[#121218] border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/5"
+        >
+          <!-- Browser Bar -->
+          <div
+            class="flex items-center gap-3 px-5 py-4 border-b border-white/5 bg-[#18181f]"
           >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-              ></path>
-            </svg>
-            Export to GitHub
-          </button>
-          <button
-            id="deploy-vercel"
-            class="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-colors flex items-center gap-2 shadow-lg shadow-indigo-500/30"
-          >
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 22.525H0l12-21.05 12 21.05z"></path>
-            </svg>
-            Deploy to Vercel
-          </button>
+            <div class="flex items-center gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+            </div>
+            <div class="flex-1 flex items-center justify-center">
+              <div
+                class="px-4 py-1.5 bg-[#0c0c0f] rounded-lg text-xs text-[#7a7a82] flex items-center gap-2"
+              >
+                <svg
+                  class="w-3 h-3 text-green-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+                preview.genapps.online
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button
+                class="p-1.5 text-[#55555d] hover:text-white transition-colors"
+                title="Refresh"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  ></path>
+                </svg>
+              </button>
+              <button
+                class="p-1.5 text-[#55555d] hover:text-white transition-colors"
+                title="Open in new tab"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Preview Iframe -->
+          <div class="bg-white aspect-[16/10] relative">
+            <iframe
+              id="preview-iframe"
+              class="w-full h-full border-0"
+              sandbox="allow-scripts"></iframe>
+
+            <!-- Loading Overlay -->
+            <div
+              id="preview-loading"
+              class="hidden absolute inset-0 bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 flex items-center justify-center"
+            >
+              <div class="text-center">
+                <div class="relative w-16 h-16 mx-auto mb-4">
+                  <div
+                    class="absolute inset-0 border-4 border-purple-500/20 rounded-full"
+                  >
+                  </div>
+                  <div
+                    class="absolute inset-0 border-4 border-transparent border-t-purple-500 rounded-full animate-spin"
+                  >
+                  </div>
+                </div>
+                <p class="text-white font-medium mb-1">
+                  Generating your website...
+                </p>
+                <p class="text-[#7a7a82] text-sm">
+                  This usually takes 15-30 seconds
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success Message -->
+        <div
+          id="success-message"
+          class="hidden mt-6 p-4 bg-green-500/10 border border-green-500/20 rounded-xl"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-400"
+            >
+              ✓
+            </div>
+            <div>
+              <p class="text-white font-medium">
+                Website generated successfully!
+              </p>
+              <p class="text-sm text-[#7a7a82]">
+                Your full-stack website is ready. Deploy it or copy the code.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -286,195 +379,168 @@ const templates = [
 <script is:inline>
   var API_URL = "http://localhost:3001/api";
   var selectedModel = "gemini-flash";
-  var deepThinking = false;
   var generatedCode = "";
 
-  function getToken() {
-    return localStorage.getItem("genapps_token");
+  // Check for prompt in URL
+  var urlParams = new URLSearchParams(window.location.search);
+  var promptParam = urlParams.get("prompt");
+  if (promptParam) {
+    document.getElementById("prompt-input").value = promptParam;
   }
-  function getUser() {
-    var userData = localStorage.getItem("genapps_user");
-    return userData ? JSON.parse(userData) : null;
-  }
 
-  document
-    .getElementById("model-select")
-    ?.addEventListener("change", function () {
-      selectedModel = this.value;
-    });
-
-  document
-    .getElementById("deep-thinking-toggle")
-    ?.addEventListener("click", function () {
-      deepThinking = !deepThinking;
-      var indicator = this.querySelector("div");
-      if (deepThinking) {
-        this.classList.remove("bg-gray-200");
-        this.classList.add("bg-indigo-500");
-        if (indicator) indicator.style.transform = "translateX(20px)";
-      } else {
-        this.classList.add("bg-gray-200");
-        this.classList.remove("bg-indigo-500");
-        if (indicator) indicator.style.transform = "translateX(0)";
-      }
-    });
-
-  document.querySelectorAll(".template-btn").forEach(function (btn) {
+  // Model selection
+  document.querySelectorAll(".model-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
-      var prompt = btn.dataset.prompt || "";
-      var textarea = document.getElementById("prompt-input");
-      if (textarea) textarea.value = prompt;
-    });
-  });
-
-  function animateProgress() {
-    return new Promise(function (resolve) {
-      var section = document.getElementById("progress-section");
-      var bar = document.getElementById("progress-bar");
-      if (section) section.classList.remove("hidden");
-      var steps = [25, 50, 75, 100];
-      var i = 0;
-      function nextStep() {
-        if (i < steps.length) {
-          if (bar) bar.style.width = steps[i] + "%";
-          i++;
-          setTimeout(nextStep, 800);
-        } else {
-          resolve();
-        }
-      }
-      nextStep();
-    });
-  }
-
-  document.getElementById("build-btn")?.addEventListener("click", function () {
-    var token = getToken();
-    var user = getUser();
-    if (!token || !user) {
-      document.getElementById("auth-modal")?.classList.remove("hidden");
-      return;
-    }
-
-    var promptInput = document.getElementById("prompt-input");
-    var prompt = promptInput ? promptInput.value.trim() : "";
-    if (!prompt) {
-      alert("Please describe your website first");
-      return;
-    }
-
-    var buildBtn = document.getElementById("build-btn");
-    buildBtn.disabled = true;
-    buildBtn.innerHTML =
-      '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Generating...</span>';
-
-    animateProgress();
-
-    fetch(API_URL + "/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-      body: JSON.stringify({
-        prompt: prompt,
-        model: selectedModel,
-        deepThinking: deepThinking,
-      }),
-    })
-      .then(function (response) {
-        return response.json().then(function (data) {
-          if (!response.ok) {
-            if (data.upgradeRequired) {
-              window.location.href = "/pricing";
-              return;
-            }
-            throw new Error(data.error || "Generation failed");
-          }
-          return data;
-        });
-      })
-      .then(function (data) {
-        if (!data) return;
-        generatedCode = data.code;
-        renderPreview(generatedCode, data.watermark);
-        if (data.credits) {
-          var cd = document.getElementById("credits-display");
-          if (cd)
-            cd.textContent =
-              (data.credits.unlimited ? "∞" : data.credits.credits) +
-              " Credits";
-        }
-      })
-      .catch(function (error) {
-        alert(error.message || "Failed to generate");
-      })
-      .finally(function () {
-        buildBtn.disabled = false;
-        buildBtn.innerHTML =
-          '<span>Build Website</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>';
-        setTimeout(function () {
-          document.getElementById("progress-section")?.classList.add("hidden");
-        }, 500);
+      document.querySelectorAll(".model-btn").forEach((b) => {
+        b.classList.remove(
+          "bg-gradient-to-br",
+          "from-purple-600/20",
+          "to-pink-600/20",
+          "border-2",
+          "border-purple-500/50",
+          "shadow-lg",
+          "shadow-purple-500/10",
+        );
+        b.classList.add("bg-[#18181f]", "border", "border-white/8");
       });
+      this.classList.remove("bg-[#18181f]", "border", "border-white/8");
+      this.classList.add(
+        "bg-gradient-to-br",
+        "from-purple-600/20",
+        "to-pink-600/20",
+        "border-2",
+        "border-purple-500/50",
+        "shadow-lg",
+        "shadow-purple-500/10",
+      );
+      selectedModel = this.dataset.model;
+    });
   });
 
-  function renderPreview(code, showWatermark) {
-    document.getElementById("preview-section")?.classList.remove("hidden");
-    var frame = document.getElementById("preview-frame");
-    var html =
-      '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://cdn.tailwindcss.com"><\/script><script src="https://unpkg.com/react@18/umd/react.production.min.js"><\/script><script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"><\/script><script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script></head><body><div id="root"></div><script type="text/babel">' +
-      code +
-      '\nconst root = ReactDOM.createRoot(document.getElementById("root"));root.render(React.createElement(App));<\/script></body></html>';
-    if (frame) frame.srcdoc = html;
-    document
-      .getElementById("preview-section")
-      ?.scrollIntoView({ behavior: "smooth" });
-  }
+  // Template selection
+  document.querySelectorAll(".template-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      document.getElementById("prompt-input").value = this.dataset.prompt;
+      document.getElementById("prompt-input").focus();
+    });
+  });
 
+  // New button
+  document.getElementById("new-btn")?.addEventListener("click", function () {
+    document.getElementById("prompt-input").value = "";
+    document.getElementById("preview-panel")?.classList.add("hidden");
+    document.getElementById("progress-container")?.classList.add("hidden");
+    document.getElementById("success-message")?.classList.add("hidden");
+    document.getElementById("prompt-input").focus();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Generate button
   document
-    .getElementById("preview-new-tab")
-    ?.addEventListener("click", function () {
-      if (!generatedCode) {
-        alert("Generate a website first");
+    .getElementById("generate-btn")
+    ?.addEventListener("click", async function () {
+      var prompt = document.getElementById("prompt-input").value.trim();
+      if (!prompt) {
+        alert("Please describe your website in detail");
         return;
       }
-      var html =
-        '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://cdn.tailwindcss.com"><\/script><script src="https://unpkg.com/react@18/umd/react.production.min.js"><\/script><script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"><\/script><script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script></head><body><div id="root"></div><script type="text/babel">' +
-        generatedCode +
-        '\nconst root = ReactDOM.createRoot(document.getElementById("root"));root.render(React.createElement(App));<\/script></body></html>';
-      window.open(
-        URL.createObjectURL(new Blob([html], { type: "text/html" })),
-        "_blank",
-      );
-    });
 
-  document
-    .getElementById("export-github")
-    ?.addEventListener("click", function () {
-      var user = getUser();
-      if (!user || user.plan === "free") {
-        alert("GitHub export is a Pro feature.");
-        window.location.href = "/pricing";
+      var token = localStorage.getItem("genapps_token");
+      if (!token) {
+        document.getElementById("auth-modal")?.classList.remove("hidden");
+        return;
       }
-    });
 
-  document
-    .getElementById("deploy-vercel")
-    ?.addEventListener("click", function () {
-      var user = getUser();
-      if (!user || user.plan === "free") {
-        alert("Vercel deploy is a Pro feature.");
-        window.location.href = "/pricing";
+      // Show progress
+      document.getElementById("progress-container")?.classList.remove("hidden");
+      document.getElementById("preview-panel")?.classList.remove("hidden");
+      document.getElementById("preview-loading")?.classList.remove("hidden");
+      document.getElementById("success-message")?.classList.add("hidden");
+
+      this.disabled = true;
+      this.innerHTML =
+        '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg><span>Generating...</span>';
+
+      // Scroll to preview
+      setTimeout(() => {
+        document
+          .getElementById("preview-panel")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+
+      var progress = 0;
+      var progressMessages = [
+        "Analyzing your requirements...",
+        "Understanding design preferences...",
+        "Generating component structure...",
+        "Building interactive elements...",
+        "Adding animations and effects...",
+        "Optimizing for responsiveness...",
+        "Finalizing code...",
+      ];
+      var msgIndex = 0;
+
+      var progressInterval = setInterval(function () {
+        progress += Math.random() * 10;
+        if (progress > 95) progress = 95;
+        document.getElementById("progress-bar").style.width = progress + "%";
+        document.getElementById("progress-percent").textContent =
+          Math.floor(progress) + "%";
+
+        if (progress > (msgIndex + 1) * 14) {
+          msgIndex = Math.min(msgIndex + 1, progressMessages.length - 1);
+          document.getElementById("progress-status").textContent =
+            progressMessages[msgIndex];
+        }
+      }, 400);
+
+      try {
+        var response = await fetch(API_URL + "/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+          body: JSON.stringify({ prompt: prompt, model: selectedModel }),
+        });
+
+        var data = await response.json();
+
+        clearInterval(progressInterval);
+        document.getElementById("progress-bar").style.width = "100%";
+        document.getElementById("progress-percent").textContent = "100%";
+        document.getElementById("progress-status").textContent = "Complete! ✨";
+
+        if (data.code) {
+          generatedCode = data.code;
+          document.getElementById("preview-iframe").srcdoc = data.code;
+          document.getElementById("preview-loading")?.classList.add("hidden");
+          document
+            .getElementById("success-message")
+            ?.classList.remove("hidden");
+        } else if (data.error) {
+          alert("Error: " + data.error);
+          document.getElementById("preview-loading")?.classList.add("hidden");
+        }
+      } catch (error) {
+        clearInterval(progressInterval);
+        alert("Generation failed. Please try again.");
+        document.getElementById("preview-loading")?.classList.add("hidden");
       }
+
+      this.disabled = false;
+      this.innerHTML =
+        '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><span>Generate Website</span>';
     });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    var user = getUser();
-    if (user) {
-      var cd = document.getElementById("credits-display");
-      if (cd)
-        cd.textContent =
-          (user.plan === "free" ? user.credits : "∞") + " Credits";
+  // Copy code
+  document.getElementById("copy-btn")?.addEventListener("click", function () {
+    if (generatedCode) {
+      navigator.clipboard.writeText(generatedCode);
+      this.innerHTML = "✓ Copied!";
+      setTimeout(() => {
+        this.innerHTML = "📋 Copy Code";
+      }, 2000);
     }
   });
 </script>

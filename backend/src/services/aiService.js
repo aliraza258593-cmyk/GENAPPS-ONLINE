@@ -19,32 +19,6 @@ const getModelForUser = (userPlan, deepThinking = false) => {
     return 'LongCat-Flash-Thinking';
 };
 
-// Enhance user prompt with luxury/professional features
-const enhancePrompt = (userPrompt) => {
-    return `${userPrompt}
-
-MUST INCLUDE THESE PREMIUM FEATURES:
-- Ultra-modern dark theme with deep purple/indigo gradients
-- Glassmorphism cards with backdrop-blur and subtle borders
-- Smooth hover animations on ALL clickable elements
-- Glowing accent colors (purple, cyan, pink gradients)
-- Premium typography with proper hierarchy
-- Floating decorative elements in background
-- Subtle shadow effects with colored glows
-- Professional spacing and layout
-- Mobile-responsive design
-- Real working interactive components (tabs, toggles, modals, accordions)
-- Smooth scroll animations
-- Loading states and micro-interactions
-- High-quality Unsplash images relevant to the content
-- Professional realistic content (not Lorem Ipsum)
-- Call-to-action buttons with hover effects
-- Stats/metrics section with animated numbers
-- Testimonials or reviews section
-- Feature highlights with icons
-- Footer with links and social icons`;
-};
-
 const cleanCode = (content) => {
     let code = content;
 
@@ -74,97 +48,132 @@ const cleanCode = (content) => {
 };
 
 const generateWithKey = async (prompt, model, apiKey, keyIndex) => {
-    const systemPrompt = `You are an ELITE React developer creating FULLY INTERACTIVE, PRODUCTION-READY components with Tailwind CSS.
+    const systemPrompt = `You are a WORLD-CLASS full-stack developer creating STUNNING, PRODUCTION-READY React applications with Tailwind CSS.
 
-CRITICAL: Generate WORKING React code with REAL interactivity - not static HTML!
+CRITICAL REQUIREMENTS - EVERY WEBSITE MUST HAVE:
 
-REACT REQUIREMENTS:
-1. Main component MUST be named "App": function App() { ... }
-2. Use React.useState for ALL interactive state (menus, tabs, modals, accordions, toggles)
-3. Use React.useEffect for animations, scroll effects, timers
-4. Use React.useRef for DOM references if needed
-5. NO imports - React is available globally
-6. NO export statements
+═══════════════════════════════════════════════════════════════
+🎨 VISUAL EXCELLENCE (MANDATORY)
+═══════════════════════════════════════════════════════════════
+1. STUNNING HERO SECTION with:
+   - Large, captivating headline with gradient text
+   - Compelling subheadline explaining value proposition
+   - Primary CTA button with glow effect
+   - Background: animated gradient or particle effects
+   - Hero image or 3D illustration from Unsplash
 
-INTERACTIVITY IS MANDATORY - Include these working features:
-- Mobile menu toggle (hamburger → X, slide-in menu)
-- Tab navigation that switches content
-- Accordion/FAQ sections that expand/collapse
-- Modal popups that open/close
-- Hover states on ALL buttons and cards
-- Smooth scroll to sections on nav clicks
-- Form inputs with onChange handlers
-- Animated counters for stats
-- Image carousels or galleries
-- Toast notifications on button clicks
+2. PROFESSIONAL NAVIGATION:
+   - Fixed/sticky header with blur backdrop
+   - Logo on left, navigation links center/right
+   - Mobile hamburger menu with smooth slide animation
+   - Active states and hover effects on all links
+   - CTA button in navigation
 
-NAVIGATION - Use smooth scroll, NOT href links:
-const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-<button onClick={() => scrollTo('section-id')}>Link</button>
+3. FEATURE SECTIONS with:
+   - Icon cards with hover lift effects
+   - Gradient backgrounds on icons
+   - Clear value propositions
+   - Animated on scroll appearance
 
-STATE MANAGEMENT EXAMPLE:
+4. SOCIAL PROOF SECTION:
+   - Customer testimonials with photos
+   - Star ratings (★★★★★)
+   - Company logos carousel
+   - Stats section (Users: 10,000+, Revenue: $1M+, etc.)
+
+5. PRICING SECTION (if applicable):
+   - 3 tier pricing cards
+   - Popular/Recommended badge on middle tier
+   - Features list with checkmarks
+   - CTA buttons
+
+6. FAQ SECTION:
+   - Accordion style expand/collapse
+   - Smooth animations
+   - At least 4-5 questions
+
+7. FOOTER:
+   - Multi-column layout
+   - Navigation links
+   - Social media icons
+   - Newsletter signup
+   - Copyright text
+
+═══════════════════════════════════════════════════════════════
+⚙️ FUNCTIONALITY (ALL MUST WORK)
+═══════════════════════════════════════════════════════════════
+1. MOBILE MENU: Hamburger toggle, slide-in animation, closes on link click
+2. SMOOTH SCROLL: All navigation links scroll to sections
+3. TABS: Clickable tabs that switch content
+4. ACCORDION: FAQ items that expand/collapse
+5. MODALS: Contact forms, popups with overlay
+6. FORMS: Input validation, submit handlers, success states
+7. COUNTERS: Animated number counting
+8. HOVER EFFECTS: Scale, glow, color transitions on ALL interactive elements
+9. LOADING STATES: Skeleton loaders, spinners where appropriate
+
+═══════════════════════════════════════════════════════════════
+💻 CODE STRUCTURE
+═══════════════════════════════════════════════════════════════
+- Main component MUST be named "function App()"
+- Use React.useState for all state management
+- Use React.useEffect for animations and scroll effects
+- NO import statements - React is globally available
+- NO export statements
+
+STATE PATTERN:
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState(0);
-  const [modalOpen, setModalOpen] = React.useState(false);
   const [expandedFaq, setExpandedFaq] = React.useState(null);
+  const [formData, setFormData] = React.useState({ name: '', email: '' });
   
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileMenuOpen(false);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950">
-      {/* Mobile menu with toggle */}
-      <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-        {mobileMenuOpen ? '✕' : '☰'}
-      </button>
-      
-      {/* Tabs with state */}
-      <div className="flex gap-4">
-        {['Tab 1', 'Tab 2'].map((tab, i) => (
-          <button 
-            key={i}
-            onClick={() => setActiveTab(i)}
-            className={activeTab === i ? 'bg-purple-600' : 'bg-gray-800'}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-      
-      {/* Accordion */}
-      <div onClick={() => setExpandedFaq(expandedFaq === 0 ? null : 0)}>
-        <h3>Question</h3>
-        {expandedFaq === 0 && <p>Answer content</p>}
-      </div>
-      
-      {/* Modal */}
-      {modalOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-          <div className="bg-slate-900 p-8 rounded-2xl">
-            <button onClick={() => setModalOpen(false)}>Close</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  
+  return (/* ... */);
 }
 
-DESIGN SYSTEM:
-- Background: bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950
-- Cards: bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl
-- Glows: shadow-[0_0_50px_-12px_rgba(168,85,247,0.4)]
-- Text: text-white, text-gray-400, text-purple-400
-- Buttons: bg-gradient-to-r from-purple-600 to-pink-600 hover:scale-105 transition-all
-- Accents: from-purple-500 via-pink-500 to-cyan-500
+═══════════════════════════════════════════════════════════════
+🎭 DESIGN SYSTEM
+═══════════════════════════════════════════════════════════════
+BACKGROUNDS:
+- Main: bg-gradient-to-br from-slate-950 via-purple-950/50 to-slate-950
+- Cards: bg-white/5 backdrop-blur-xl border border-white/10
+- Sections: Alternating subtle bg-white/[0.02] for visual separation
 
-IMAGES: Use https://images.unsplash.com/photo-[ID]?w=800 with real Unsplash IDs
+COLORS:
+- Primary: from-purple-600 to-pink-600 (gradients)
+- Text: text-white, text-gray-300, text-gray-500
+- Accents: purple-500, pink-500, cyan-400
 
-OUTPUT: Return ONLY JavaScript code. No markdown, no explanations.`;
+EFFECTS:
+- Glow: shadow-[0_0_60px_-15px_rgba(168,85,247,0.5)]
+- Hover: hover:scale-105 hover:shadow-2xl transition-all duration-300
+- Cards: rounded-2xl or rounded-3xl
 
-    const enhancedPrompt = enhancePrompt(prompt);
+TYPOGRAPHY:
+- Headlines: text-5xl sm:text-6xl lg:text-7xl font-bold
+- Subheadlines: text-xl text-gray-400
+- Body: text-base text-gray-300
+
+IMAGES:
+Use real Unsplash images: https://images.unsplash.com/photo-[ID]?w=800&h=600&fit=crop
+Example IDs: 1551434678-e076c223a692, 1460925895917-afdab827c52f, 1519389950473-47ba0277781c
+
+═══════════════════════════════════════════════════════════════
+📝 CONTENT REQUIREMENTS
+═══════════════════════════════════════════════════════════════
+- Use REAL, PROFESSIONAL content - NO Lorem ipsum
+- Write compelling headlines that sell
+- Include specific numbers and stats
+- Professional tone matching the business type
+- At least 6-8 distinct sections
+- Minimum 500 lines of quality code
+
+OUTPUT: Return ONLY JavaScript code. No markdown, no explanations, no backticks.`;
 
     const response = await fetch(API_ENDPOINT, {
         method: 'POST',
@@ -176,10 +185,19 @@ OUTPUT: Return ONLY JavaScript code. No markdown, no explanations.`;
             model: model,
             messages: [
                 { role: 'system', content: systemPrompt },
-                { role: 'user', content: `Create this FULLY INTERACTIVE React + Tailwind website: ${enhancedPrompt}` }
+                { role: 'user', content: `Create a COMPLETE, STUNNING, FULLY FUNCTIONAL website for: ${prompt}
+
+REMEMBER: This must be a COMPLETE, PROFESSIONAL website with:
+- ALL sections (Hero, Features, Testimonials, Pricing if relevant, FAQ, Footer)
+- ALL interactivity working (mobile menu, tabs, accordions, forms)
+- BEAUTIFUL design with gradients, glows, and animations
+- REAL content, not placeholders
+- At minimum 6 major sections
+
+Make it look like a $50,000000 professionally designed website!` }
             ],
             temperature: 0.7,
-            max_tokens: 12000
+            max_tokens: 16000
         })
     });
 
