@@ -1,0 +1,254 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import AuthModal from "../components/AuthModal.astro";
+
+const templates = [
+    {
+        name: "Ecommerce Store",
+        icon: "🛒",
+        color: "from-emerald-500 to-teal-600",
+        prompt: "Create a modern, premium ecommerce store with product grid, hero banner, featured categories, shopping cart, and checkout flow. Include product filters, price displays, add to cart buttons, and a sleek dark theme with gold accents.",
+        category: "Business",
+    },
+    {
+        name: "Hotel Booking",
+        icon: "🏨",
+        color: "from-blue-500 to-indigo-600",
+        prompt: "Build an elegant hotel booking website with room listings, availability calendar, image galleries, amenities display, booking form, and guest reviews section. Use a luxurious design with warm colors.",
+        category: "Business",
+    },
+    {
+        name: "Restaurant",
+        icon: "🍽️",
+        color: "from-yellow-500 to-amber-600",
+        prompt: "Design a restaurant website with menu display, online reservation system, chef spotlight, photo gallery, location map, and customer testimonials. Use a sophisticated dark theme.",
+        category: "Business",
+    },
+    {
+        name: "SaaS Landing",
+        icon: "🚀",
+        color: "from-purple-500 to-pink-600",
+        prompt: "Create a conversion-optimized SaaS landing page with hero section, feature highlights, pricing table, customer testimonials, FAQ accordion, and call-to-action sections.",
+        category: "Tech",
+    },
+    {
+        name: "Dashboard",
+        icon: "📊",
+        color: "from-cyan-500 to-blue-600",
+        prompt: "Build a comprehensive admin dashboard with sidebar navigation, statistics cards, charts, data tables, user management panel, and notification center.",
+        category: "Tech",
+    },
+    {
+        name: "Portfolio",
+        icon: "🎨",
+        color: "from-pink-500 to-rose-600",
+        prompt: "Design a creative portfolio website for a designer with project showcase, about section, skills display, contact form, and resume download.",
+        category: "Personal",
+    },
+    {
+        name: "Agency",
+        icon: "💼",
+        color: "from-violet-500 to-purple-600",
+        prompt: "Create a digital agency website with service offerings, team section, case studies, client logos, testimonials, and contact page.",
+        category: "Business",
+    },
+    {
+        name: "Startup",
+        icon: "⚡",
+        color: "from-orange-500 to-red-600",
+        prompt: "Build a startup landing page with problem-solution format, product demo section, investor pitch, team bios, and waitlist signup.",
+        category: "Tech",
+    },
+    {
+        name: "Blog",
+        icon: "📝",
+        color: "from-green-500 to-emerald-600",
+        prompt: "Design a modern blog platform with article grid, category navigation, author profiles, newsletter signup, and comment system.",
+        category: "Personal",
+    },
+    {
+        name: "YouTube Clone",
+        icon: "📺",
+        color: "from-red-500 to-rose-600",
+        prompt: "Create a video streaming platform interface like YouTube with video grid, sidebar navigation, search bar, video player page, and channel features.",
+        category: "Clone",
+    },
+    {
+        name: "Facebook Clone",
+        icon: "👥",
+        color: "from-blue-600 to-indigo-700",
+        prompt: "Build a social media platform interface with news feed, profile pages, friend suggestions, stories section, and messaging panel.",
+        category: "Clone",
+    },
+    {
+        name: "Netflix Clone",
+        icon: "🎬",
+        color: "from-gray-900 to-red-900",
+        prompt: "Design a streaming service interface with category rows, hero banner, profile selection, search, and video preview hover effects.",
+        category: "Clone",
+    },
+    {
+        name: "Google Clone",
+        icon: "🔍",
+        color: "from-gray-500 to-gray-700",
+        prompt: "Create a search engine homepage with search bar, voice search icon, trending searches, and results page layout.",
+        category: "Clone",
+    },
+    {
+        name: "Spotify Clone",
+        icon: "🎵",
+        color: "from-green-600 to-green-800",
+        prompt: "Build a music streaming interface with player controls, playlist sidebar, album grid, artist pages, and library management.",
+        category: "Clone",
+    },
+    {
+        name: "Shopify Clone",
+        icon: "🏪",
+        color: "from-green-500 to-teal-600",
+        prompt: "Create an ecommerce platform builder interface with store dashboard, product management, order tracking, and analytics.",
+        category: "Clone",
+    },
+    {
+        name: "Admin Panel",
+        icon: "⚙️",
+        color: "from-slate-600 to-slate-800",
+        prompt: "Design a comprehensive admin panel with multiple dashboard views, user management, content editor, settings pages, and role-based access.",
+        category: "Tech",
+    },
+];
+
+const categories = ["All", "Business", "Tech", "Personal", "Clone"];
+---
+
+<Layout title="Templates">
+    <Header />
+    <AuthModal />
+
+    <main class="pt-24 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-12">
+                <h1
+                    class="text-4xl sm:text-5xl font-bold font-display text-white mb-4"
+                >
+                    Template <span class="gradient-text">Gallery</span>
+                </h1>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Choose from professionally designed templates or use them as
+                    inspiration for your custom builds
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                {
+                    categories.map((cat, i) => (
+                        <button
+                            class={`category-btn px-5 py-2 rounded-full text-sm font-medium transition-all ${i === 0 ? "bg-primary-500 text-white" : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"}`}
+                            data-category={cat}
+                        >
+                            {cat}
+                        </button>
+                    ))
+                }
+            </div>
+
+            <div
+                class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                id="templates-grid"
+            >
+                {
+                    templates.map((template) => (
+                        <div
+                            class="template-card glass rounded-2xl p-6 card-hover cursor-pointer group"
+                            data-category={template.category}
+                            data-prompt={template.prompt}
+                        >
+                            <div
+                                class={`w-14 h-14 rounded-xl bg-gradient-to-br ${template.color} flex items-center justify-center mb-4 text-2xl group-hover:scale-110 transition-transform`}
+                            >
+                                {template.icon}
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">
+                                {template.name}
+                            </h3>
+                            <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                                {template.prompt.slice(0, 80)}...
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs px-2 py-1 rounded-full bg-white/5 text-gray-500">
+                                    {template.category}
+                                </span>
+                                <button class="use-template-btn text-primary-400 hover:text-primary-300 text-sm font-medium flex items-center gap-1">
+                                    Use Template
+                                    <svg
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 5l7 7-7 7"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<script>
+    document.querySelectorAll(".category-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".category-btn").forEach((b) => {
+                b.classList.remove("bg-primary-500", "text-white");
+                b.classList.add("bg-white/5", "text-gray-400");
+            });
+            btn.classList.remove("bg-white/5", "text-gray-400");
+            btn.classList.add("bg-primary-500", "text-white");
+
+            const category = (btn as HTMLElement).dataset.category;
+            document.querySelectorAll(".template-card").forEach((card) => {
+                const cardEl = card as HTMLElement;
+                if (
+                    category === "All" ||
+                    cardEl.dataset.category === category
+                ) {
+                    cardEl.style.display = "block";
+                } else {
+                    cardEl.style.display = "none";
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll(".template-card").forEach((card) => {
+        card.addEventListener("click", () => {
+            const prompt = (card as HTMLElement).dataset.prompt;
+            if (prompt) {
+                sessionStorage.setItem("template_prompt", prompt);
+                window.location.href = "/builder";
+            }
+        });
+    });
+
+    if (typeof window !== "undefined") {
+        const savedPrompt = sessionStorage.getItem("template_prompt");
+        if (savedPrompt && window.location.pathname === "/builder") {
+            sessionStorage.removeItem("template_prompt");
+            const textarea = document.getElementById(
+                "prompt-input",
+            ) as HTMLTextAreaElement;
+            if (textarea) textarea.value = savedPrompt;
+        }
+    }
+</script>

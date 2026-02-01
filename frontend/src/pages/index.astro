@@ -1,0 +1,294 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import AuthModal from "../components/AuthModal.astro";
+---
+
+<Layout title="AI Website Builder">
+    <Header />
+    <AuthModal />
+
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50"
+            >
+            </div>
+            <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 mb-8"
+                    >
+                        <span
+                            class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
+                        ></span>
+                        <span class="text-sm font-semibold text-indigo-700"
+                            >Now with 9 AI Models</span
+                        >
+                    </div>
+
+                    <h1
+                        class="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-6"
+                    >
+                        Build websites<br />
+                        <span class="gradient-text-hero"
+                            >10x faster with AI</span
+                        >
+                    </h1>
+
+                    <p
+                        class="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed"
+                    >
+                        Transform your ideas into stunning, production-ready
+                        React websites in seconds. No coding required.
+                    </p>
+
+                    <div
+                        class="flex flex-col sm:flex-row items-center justify-center gap-4"
+                    >
+                        <a
+                            href="/builder"
+                            class="btn-primary text-lg px-8 py-4 flex items-center gap-2"
+                        >
+                            <span>Start Building Free</span>
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </a>
+                        <a
+                            href="/templates"
+                            class="btn-secondary text-lg px-8 py-4"
+                        >
+                            View Templates
+                        </a>
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-6">
+                        ✨ 5 free generations daily • No credit card required
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logos Section -->
+        <section class="py-16 border-y border-gray-100 bg-gray-50/50">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <p class="text-center text-sm font-medium text-gray-500 mb-8">
+                    TRUSTED BY DEVELOPERS FROM
+                </p>
+                <div
+                    class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-60"
+                >
+                    <span class="text-2xl font-bold text-gray-400">Google</span>
+                    <span class="text-2xl font-bold text-gray-400"
+                        >Microsoft</span
+                    >
+                    <span class="text-2xl font-bold text-gray-400">Meta</span>
+                    <span class="text-2xl font-bold text-gray-400">Amazon</span>
+                    <span class="text-2xl font-bold text-gray-400">Netflix</span
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        Everything you need to build
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Powerful features that make website creation effortless
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card p-8">
+                        <div class="feature-icon feature-icon-purple mb-6">
+                            ⚡
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            Lightning Fast
+                        </h3>
+                        <p class="text-gray-600">
+                            Generate complete websites in under 30 seconds with
+                            our optimized AI models.
+                        </p>
+                    </div>
+                    <div class="card p-8">
+                        <div class="feature-icon feature-icon-blue mb-6">
+                            🎨
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            Beautiful Design
+                        </h3>
+                        <p class="text-gray-600">
+                            Every website is crafted with modern aesthetics and
+                            responsive layouts.
+                        </p>
+                    </div>
+                    <div class="card p-8">
+                        <div class="feature-icon feature-icon-green mb-6">
+                            💻
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            Clean Code
+                        </h3>
+                        <p class="text-gray-600">
+                            Export production-ready React + Tailwind CSS code
+                            you can customize.
+                        </p>
+                    </div>
+                    <div class="card p-8">
+                        <div class="feature-icon feature-icon-orange mb-6">
+                            🚀
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            One-Click Deploy
+                        </h3>
+                        <p class="text-gray-600">
+                            Deploy directly to Vercel or export to GitHub with a
+                            single click.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works -->
+        <section class="py-24 bg-gradient-to-br from-gray-50 to-white">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        How it works
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Three simple steps to your dream website
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-indigo-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-indigo-500/30"
+                        >
+                            1
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            Describe your vision
+                        </h3>
+                        <p class="text-gray-600">
+                            Tell our AI what kind of website you want using
+                            natural language.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-purple-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-purple-500/30"
+                        >
+                            2
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            AI generates code
+                        </h3>
+                        <p class="text-gray-600">
+                            Our AI creates a complete React + Tailwind website
+                            in seconds.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-pink-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-pink-500/30"
+                        >
+                            3
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            Preview & deploy
+                        </h3>
+                        <p class="text-gray-600">
+                            Preview instantly, then deploy to Vercel or export
+                            code to GitHub.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-20 bg-gray-900 text-white">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl lg:text-5xl font-black mb-2">
+                            50K+
+                        </div>
+                        <div class="text-gray-400">Websites Built</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl lg:text-5xl font-black mb-2">
+                            10K+
+                        </div>
+                        <div class="text-gray-400">Happy Users</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl lg:text-5xl font-black mb-2">
+                            9
+                        </div>
+                        <div class="text-gray-400">AI Models</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl lg:text-5xl font-black mb-2">
+                            99%
+                        </div>
+                        <div class="text-gray-400">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-gradient-to-r from-indigo-600 to-purple-600">
+            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                    Ready to build something amazing?
+                </h2>
+                <p class="text-xl text-indigo-100 mb-10">
+                    Join thousands of developers creating stunning websites with
+                    AI.
+                </p>
+                <a
+                    href="/builder"
+                    class="inline-flex items-center gap-2 px-10 py-5 bg-white text-indigo-600 font-bold text-lg rounded-xl shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all"
+                >
+                    <span>Get Started Free</span>
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

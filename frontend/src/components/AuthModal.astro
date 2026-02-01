@@ -1,0 +1,277 @@
+---
+
+---
+
+<div
+    id="auth-modal"
+    class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4"
+>
+    <div
+        class="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        id="auth-backdrop"
+    >
+    </div>
+
+    <div class="relative w-full max-w-md bg-white rounded-2xl p-8 shadow-2xl">
+        <button
+            id="auth-close"
+            class="absolute top-4 right-4 p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+            <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <div class="text-center mb-8">
+            <div
+                class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-500/25"
+            >
+                <svg
+                    class="w-8 h-8 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path
+                        d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <h2 id="auth-title" class="text-2xl font-bold text-gray-900 mb-1">
+                Welcome to GenApps
+            </h2>
+            <p class="text-gray-500">Sign in to start building websites</p>
+        </div>
+
+        <div class="flex gap-1 p-1 rounded-lg bg-gray-100 mb-6">
+            <button
+                id="tab-login"
+                class="flex-1 py-2.5 rounded-md text-sm font-semibold transition-all bg-white text-gray-900 shadow-sm"
+                >Sign In</button
+            >
+            <button
+                id="tab-signup"
+                class="flex-1 py-2.5 rounded-md text-sm font-semibold transition-all text-gray-500"
+                >Sign Up</button
+            >
+        </div>
+
+        <form id="login-form" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Email</label
+                >
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                    placeholder="you@example.com"
+                />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Password</label
+                >
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                    placeholder="••••••••"
+                />
+            </div>
+            <button
+                type="submit"
+                class="w-full py-3 rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-500/25"
+                >Sign In</button
+            >
+        </form>
+
+        <form id="signup-form" class="space-y-4 hidden">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Name</label
+                >
+                <input
+                    type="text"
+                    name="name"
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                    placeholder="John Doe"
+                />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Email</label
+                >
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                    placeholder="you@example.com"
+                />
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >Password</label
+                >
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                    placeholder="••••••••"
+                />
+            </div>
+            <button
+                type="submit"
+                class="w-full py-3 rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-500/25"
+                >Create Account</button
+            >
+        </form>
+
+        <div class="flex items-center gap-4 my-6">
+            <div class="flex-1 h-px bg-gray-200"></div>
+            <span class="text-xs text-gray-400">or</span>
+            <div class="flex-1 h-px bg-gray-200"></div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+            <button
+                id="google-auth"
+                class="flex items-center justify-center gap-2 py-3 rounded-lg bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors"
+            >
+                <svg class="w-5 h-5" viewBox="0 0 24 24">
+                    <path
+                        fill="#EA4335"
+                        d="M5.26620003,9.76452941 C6.19878754,6.93863203 8.85444915,4.90909091 12,4.90909091 C13.6909091,4.90909091 15.2181818,5.50909091 16.4181818,6.49090909 L19.9090909,3 C17.7818182,1.14545455 15.0545455,0 12,0 C7.27006974,0 3.1977497,2.69829785 1.23999023,6.65002441 L5.26620003,9.76452941 Z"
+                    ></path>
+                    <path
+                        fill="#34A853"
+                        d="M16.0407269,18.0125889 C14.9509167,18.7163016 13.5660892,19.0909091 12,19.0909091 C8.86648613,19.0909091 6.21911939,17.076871 5.27698177,14.2678769 L1.23746264,17.3349879 C3.19279051,21.2936293 7.26500293,24 12,24 C14.9328362,24 17.7353462,22.9573905 19.834192,20.9995801 L16.0407269,18.0125889 Z"
+                    ></path>
+                    <path
+                        fill="#4A90E2"
+                        d="M19.834192,20.9995801 C22.0291676,18.9520994 23.4545455,15.903663 23.4545455,12 C23.4545455,11.2909091 23.3454545,10.5272727 23.1818182,9.81818182 L12,9.81818182 L12,14.4545455 L18.4363636,14.4545455 C18.1187732,16.013626 17.2662994,17.2212117 16.0407269,18.0125889 L19.834192,20.9995801 Z"
+                    ></path>
+                    <path
+                        fill="#FBBC05"
+                        d="M5.27698177,14.2678769 C5.03832634,13.556323 4.90909091,12.7937589 4.90909091,12 C4.90909091,11.2182781 5.03443647,10.4668121 5.26620003,9.76452941 L1.23999023,6.65002441 C0.43658717,8.26043162 0,10.0753848 0,12 C0,13.9195484 0.444780743,15.7301709 1.23746264,17.3349879 L5.27698177,14.2678769 Z"
+                    ></path>
+                </svg>
+                <span class="text-sm font-medium text-gray-700">Google</span>
+            </button>
+            <button
+                id="github-auth"
+                class="flex items-center justify-center gap-2 py-3 rounded-lg bg-gray-50 border border-gray-200 hover:bg-gray-100 transition-colors"
+            >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    ></path>
+                </svg>
+                <span class="text-sm font-medium text-gray-700">GitHub</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const API_URL = "http://localhost:3001/api";
+    const modal = document.getElementById("auth-modal");
+    const backdrop = document.getElementById("auth-backdrop");
+    const closeBtn = document.getElementById("auth-close");
+    const tabLogin = document.getElementById("tab-login");
+    const tabSignup = document.getElementById("tab-signup");
+    const loginForm = document.getElementById("login-form");
+    const signupForm = document.getElementById("signup-form");
+    const authTitle = document.getElementById("auth-title");
+
+    backdrop?.addEventListener("click", () => modal?.classList.add("hidden"));
+    closeBtn?.addEventListener("click", () => modal?.classList.add("hidden"));
+
+    tabLogin?.addEventListener("click", () => {
+        tabLogin.classList.add("bg-white", "text-gray-900", "shadow-sm");
+        tabLogin.classList.remove("text-gray-500");
+        tabSignup?.classList.remove("bg-white", "text-gray-900", "shadow-sm");
+        tabSignup?.classList.add("text-gray-500");
+        loginForm?.classList.remove("hidden");
+        signupForm?.classList.add("hidden");
+        if (authTitle) authTitle.textContent = "Welcome to GenApps";
+    });
+
+    tabSignup?.addEventListener("click", () => {
+        tabSignup.classList.add("bg-white", "text-gray-900", "shadow-sm");
+        tabSignup.classList.remove("text-gray-500");
+        tabLogin?.classList.remove("bg-white", "text-gray-900", "shadow-sm");
+        tabLogin?.classList.add("text-gray-500");
+        signupForm?.classList.remove("hidden");
+        loginForm?.classList.add("hidden");
+        if (authTitle) authTitle.textContent = "Create Account";
+    });
+
+    loginForm?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(loginForm as HTMLFormElement);
+        try {
+            const res = await fetch(`${API_URL}/auth/login`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: formData.get("email"),
+                    password: formData.get("password"),
+                }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                localStorage.setItem("genapps_token", data.token);
+                localStorage.setItem("genapps_user", JSON.stringify(data.user));
+                modal?.classList.add("hidden");
+                window.location.reload();
+            } else {
+                alert(data.error || "Login failed");
+            }
+        } catch {
+            alert("Connection error");
+        }
+    });
+
+    signupForm?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(signupForm as HTMLFormElement);
+        try {
+            const res = await fetch(`${API_URL}/auth/signup`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.get("name"),
+                    email: formData.get("email"),
+                    password: formData.get("password"),
+                }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                localStorage.setItem("genapps_token", data.token);
+                localStorage.setItem("genapps_user", JSON.stringify(data.user));
+                modal?.classList.add("hidden");
+                window.location.reload();
+            } else {
+                alert(data.error || "Signup failed");
+            }
+        } catch {
+            alert("Connection error");
+        }
+    });
+</script>

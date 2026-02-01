@@ -1,0 +1,280 @@
+---
+
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <nav class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-11 h-11 relative">
+          <svg viewBox="0 0 48 48" fill="none" class="w-full h-full">
+            <defs>
+              <linearGradient
+                id="sphereGrad"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop offset="0%" stop-color="#a855f7"></stop>
+                <stop offset="30%" stop-color="#6366f1"></stop>
+                <stop offset="60%" stop-color="#38bdf8"></stop>
+                <stop offset="100%" stop-color="#34d399"></stop>
+              </linearGradient>
+              <linearGradient
+                id="overlayGrad"
+                x1="100%"
+                y1="0%"
+                x2="0%"
+                y2="100%"
+              >
+                <stop offset="0%" stop-color="#f472b6" stop-opacity="0.6"
+                ></stop>
+                <stop offset="100%" stop-color="#818cf8" stop-opacity="0.3"
+                ></stop>
+              </linearGradient>
+            </defs>
+            <circle cx="24" cy="24" r="23" fill="url(#sphereGrad)"></circle>
+            <ellipse cx="20" cy="24" rx="14" ry="18" fill="url(#overlayGrad)"
+            ></ellipse>
+            <path
+              d="M30 16c-7 0-12 5-12 12s5 12 12 12c4 0 7-1.5 9-4l-4-3c-1.5 2-3.5 3-5 3-5 0-8-4-8-8s3-8 8-8c1.5 0 3.5 1 5 3l4-3c-2-2.5-5-4-9-4z"
+              fill="white"
+              fill-opacity="0.9"></path>
+          </svg>
+        </div>
+        <span
+          class="text-2xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
+          >GenApps</span
+        >
+      </a>
+
+      <!-- Nav Links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a
+          href="/templates"
+          class="text-gray-600 hover:text-gray-900 font-medium text-sm transition-colors"
+          >Templates</a
+        >
+        <a
+          href="/pricing"
+          class="text-gray-600 hover:text-gray-900 font-medium text-sm transition-colors"
+          >Pricing</a
+        >
+        <a
+          href="/faq"
+          class="text-gray-600 hover:text-gray-900 font-medium text-sm transition-colors"
+          >FAQ</a
+        >
+        <a
+          href="/contact"
+          class="text-gray-600 hover:text-gray-900 font-medium text-sm transition-colors"
+          >Contact</a
+        >
+      </div>
+
+      <!-- Right side -->
+      <div class="flex items-center gap-4">
+        <div
+          id="user-credits"
+          class="hidden items-center gap-2 px-4 py-2 rounded-full bg-indigo-50"
+        >
+          <svg
+            class="w-4 h-4 text-indigo-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span class="text-sm font-semibold text-indigo-600" id="credits-count"
+            >5</span
+          >
+          <span class="text-xs text-gray-500">credits</span>
+        </div>
+
+        <button
+          id="auth-btn"
+          class="px-5 py-2.5 rounded-full bg-gray-900 text-white font-medium text-sm hover:bg-gray-800 transition-colors"
+        >
+          Get Started
+        </button>
+
+        <div id="user-menu" class="hidden relative">
+          <button
+            id="user-menu-btn"
+            class="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-gray-100 transition-colors"
+          >
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold"
+              id="user-avatar"
+            >
+              U
+            </div>
+            <svg
+              class="w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="user-dropdown"
+            class="hidden absolute right-0 top-full mt-2 w-56 bg-white rounded-xl border border-gray-200 py-2 shadow-xl"
+          >
+            <div class="px-4 py-3 border-b border-gray-100">
+              <div
+                class="text-sm font-semibold text-gray-900"
+                id="dropdown-name"
+              >
+                User
+              </div>
+              <div class="text-xs text-gray-500" id="dropdown-email">
+                user@email.com
+              </div>
+            </div>
+            <a
+              href="/builder"
+              class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              <svg
+                class="w-4 h-4 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              Builder
+            </a>
+            <a
+              href="/pricing"
+              class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+            >
+              <svg
+                class="w-4 h-4 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                ></path>
+              </svg>
+              Upgrade
+            </a>
+            <hr class="my-2 border-gray-100" />
+            <button
+              id="logout-btn"
+              class="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                ></path>
+              </svg>
+              Sign out
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const API_URL = "http://localhost:3001/api";
+
+  function getToken() {
+    return localStorage.getItem("genapps_token");
+  }
+
+  function getUser() {
+    const userData = localStorage.getItem("genapps_user");
+    return userData ? JSON.parse(userData) : null;
+  }
+
+  function updateUI() {
+    const token = getToken();
+    const user = getUser();
+    const authBtn = document.getElementById("auth-btn");
+    const userMenu = document.getElementById("user-menu");
+    const userCredits = document.getElementById("user-credits");
+    const creditsCount = document.getElementById("credits-count");
+    const userAvatar = document.getElementById("user-avatar");
+    const dropdownName = document.getElementById("dropdown-name");
+    const dropdownEmail = document.getElementById("dropdown-email");
+
+    if (token && user) {
+      authBtn?.classList.add("hidden");
+      userMenu?.classList.remove("hidden");
+      userMenu?.classList.add("flex");
+      userCredits?.classList.remove("hidden");
+      userCredits?.classList.add("flex");
+
+      const displayName = user.name || user.email.split("@")[0];
+      if (userAvatar) userAvatar.textContent = displayName[0].toUpperCase();
+      if (dropdownName) dropdownName.textContent = displayName;
+      if (dropdownEmail) dropdownEmail.textContent = user.email;
+      if (creditsCount)
+        creditsCount.textContent = user.plan === "free" ? user.credits : "∞";
+    } else {
+      authBtn?.classList.remove("hidden");
+      userMenu?.classList.add("hidden");
+      userCredits?.classList.add("hidden");
+    }
+  }
+
+  document.getElementById("auth-btn")?.addEventListener("click", () => {
+    const modal = document.getElementById("auth-modal");
+    if (modal) modal.classList.remove("hidden");
+  });
+
+  document.getElementById("user-menu-btn")?.addEventListener("click", () => {
+    document.getElementById("user-dropdown")?.classList.toggle("hidden");
+  });
+
+  document.getElementById("logout-btn")?.addEventListener("click", () => {
+    localStorage.removeItem("genapps_token");
+    localStorage.removeItem("genapps_user");
+    window.location.href = "/";
+  });
+
+  document.addEventListener("click", (e) => {
+    const userMenu = document.getElementById("user-menu");
+    const dropdown = document.getElementById("user-dropdown");
+    if (userMenu && dropdown && !userMenu.contains(e.target as Node)) {
+      dropdown.classList.add("hidden");
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", updateUI);
+</script>

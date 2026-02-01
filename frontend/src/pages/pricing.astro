@@ -1,0 +1,446 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import AuthModal from "../components/AuthModal.astro";
+---
+
+<Layout title="Pricing">
+    <Header />
+    <AuthModal />
+
+    <main
+        class="pt-24 pb-16 bg-gradient-to-b from-gray-50 to-white min-h-screen"
+    >
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Simple, transparent pricing
+                </h1>
+                <p class="text-xl text-gray-600">
+                    Choose the plan that fits your needs. Upgrade or downgrade
+                    anytime.
+                </p>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Free Plan -->
+                <div
+                    class="bg-white rounded-2xl border border-gray-200 p-8 relative"
+                >
+                    <div class="mb-8">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center mb-6"
+                        >
+                            <svg
+                                class="w-6 h-6 text-gray-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                            Free
+                        </h3>
+                        <div class="flex items-baseline gap-1 mb-3">
+                            <span class="text-5xl font-bold text-gray-900"
+                                >$0</span
+                            >
+                            <span class="text-gray-500">/forever</span>
+                        </div>
+                        <p class="text-gray-600">
+                            Perfect for trying out GenApps
+                        </p>
+                    </div>
+
+                    <button
+                        class="w-full py-3 px-6 rounded-xl border-2 border-gray-200 font-semibold text-gray-700 hover:bg-gray-50 transition-colors mb-8"
+                    >
+                        Get Started Free
+                    </button>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            5 credits per day
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Basic AI models
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Preview in new tab
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Standard templates
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-400">
+                            <svg
+                                class="w-5 h-5 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path></svg
+                            >
+                            GitHub export
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-400">
+                            <svg
+                                class="w-5 h-5 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path></svg
+                            >
+                            Vercel deploy
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pro Plan -->
+                <div
+                    class="bg-white rounded-2xl border-2 border-indigo-500 p-8 relative shadow-xl shadow-indigo-500/10"
+                >
+                    <div
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-indigo-500 text-white text-sm font-semibold rounded-full"
+                    >
+                        Most Popular
+                    </div>
+
+                    <div class="mb-8">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center mb-6"
+                        >
+                            <svg
+                                class="w-6 h-6 text-indigo-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                            Pro
+                        </h3>
+                        <div class="flex items-baseline gap-1 mb-3">
+                            <span class="text-5xl font-bold text-gray-900"
+                                >$19</span
+                            >
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                        <p class="text-gray-600">
+                            For serious creators and developers
+                        </p>
+                    </div>
+
+                    <button
+                        class="w-full py-3 px-6 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-colors mb-8 shadow-lg shadow-indigo-500/30"
+                    >
+                        Upgrade to Pro
+                    </button>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Unlimited builds
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            All AI models
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            No watermark
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            GitHub export
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Vercel deploy
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            All templates
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-400">
+                            <svg
+                                class="w-5 h-5 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path></svg
+                            >
+                            Deep thinking mode
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Plus Plan -->
+                <div
+                    class="bg-white rounded-2xl border border-gray-200 p-8 relative"
+                >
+                    <div class="mb-8">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-6"
+                        >
+                            <svg
+                                class="w-6 h-6 text-purple-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                            Plus
+                        </h3>
+                        <div class="flex items-baseline gap-1 mb-3">
+                            <span class="text-5xl font-bold text-gray-900"
+                                >$49</span
+                            >
+                            <span class="text-gray-500">/month</span>
+                        </div>
+                        <p class="text-gray-600">For power users and teams</p>
+                    </div>
+
+                    <button
+                        class="w-full py-3 px-6 rounded-xl border-2 border-purple-500 text-purple-600 font-semibold hover:bg-purple-50 transition-colors mb-8"
+                    >
+                        Upgrade to Plus
+                    </button>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Everything in Pro
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Deep thinking mode
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Priority support
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Advanced templates
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            Custom branding
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <svg
+                                class="w-5 h-5 text-green-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path></svg
+                            >
+                            API access
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ Link -->
+            <div class="text-center mt-16">
+                <p class="text-gray-600">
+                    Have questions? <a
+                        href="/faq"
+                        class="text-indigo-600 font-semibold hover:underline"
+                        >Check our FAQ</a
+                    >
+                </p>
+            </div>
+        </div>
+    </main>
+</Layout>
