@@ -46,7 +46,7 @@ export const Footer = () => {
                     <p className="text-gray-500 text-xs text-center">
                         Genapps.online is a trading name of <span className="text-gray-300 font-medium">MUNEEB UR REHMAN</span>.
                         <br />
-                        <span className="text-gray-600">Refund Policy: 30-day money-back guarantee if code has not been exported to GitHub.</span>
+                        <span className="text-gray-600">Refund Policy: 30-day money-back guarantee.</span>
                     </p>
                     <p className="text-gray-600 text-[10px]">
                         © {new Date().getFullYear()} Genapps.online. All rights reserved.
