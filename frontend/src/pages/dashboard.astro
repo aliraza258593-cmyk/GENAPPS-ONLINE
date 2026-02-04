@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ProjectGrid } from "../components/react/dashboard/ProjectGrid";
+---
+
+<Layout title="Dashboard">
+    <div class="min-h-screen bg-[#09090b] pt-20">
+        <ProjectGrid client:load />
+    </div>
+</Layout>

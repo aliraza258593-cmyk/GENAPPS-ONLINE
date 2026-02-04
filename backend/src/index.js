@@ -36,8 +36,11 @@ const generateLimiter = rateLimit({
 });
 app.use('/api/generate', generateLimiter);
 
+import boltRoutes from './routes/bolt.js';
+
 app.use('/api/auth', authRoutes);
 app.use('/api/generate', generateRoutes);
+app.use('/api/bolt', boltRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/contact', contactRoutes);
 

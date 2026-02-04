@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ProfilePage } from "../components/react/settings/ProfilePage";
+---
+
+<Layout title="Settings - GenApps" showNav={false} showFooter={false}>
+    <ProfilePage client:load />
+</Layout>
