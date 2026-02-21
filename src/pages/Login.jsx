@@ -96,12 +96,13 @@ export default function Login() {
                     />
 
                     <Link to="/" className="flex items-center space-x-3 mb-10 group">
-                        <div className="bg-gradient-to-r from-brand-400 to-lavender-400 p-2.5 rounded-xl shadow-lg group-hover:shadow-xl transition-shadow">
-                            <Rocket className="h-6 w-6 text-white" />
+                        <img src="/logo.svg" alt="Genapps" className="w-10 h-10 rounded-xl" />
+                        <div className="flex flex-col">
+                            <span className="font-display font-bold text-2xl text-white leading-tight">
+                                Gen<span className="text-brand-300">apps</span>
+                            </span>
+                            <span className="text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase leading-none">Prompt to Platform</span>
                         </div>
-                        <span className="font-display font-bold text-2xl text-white">
-                            Gen<span className="text-brand-300">apps</span>
-                        </span>
                     </Link>
 
                     <h2 className="text-3xl font-extrabold text-white mb-4 font-display leading-tight">
@@ -147,12 +148,13 @@ export default function Login() {
                 {/* Mobile logo */}
                 <div className="absolute top-6 left-4 lg:hidden">
                     <Link to="/" className="flex items-center space-x-2 group">
-                        <div className="bg-gradient-to-r from-brand-500 to-lavender-500 p-2 rounded-xl shadow-md">
-                            <Rocket className="h-5 w-5 text-white" />
+                        <img src="/logo.svg" alt="Genapps" className="w-9 h-9 rounded-xl" />
+                        <div className="flex flex-col">
+                            <span className="font-display font-bold text-xl text-slate-900 leading-tight">
+                                Gen<span className="text-brand-500">apps</span>
+                            </span>
+                            <span className="text-[8px] font-semibold tracking-[0.2em] text-slate-400 uppercase leading-none">Prompt to Platform</span>
                         </div>
-                        <span className="font-display font-bold text-xl text-slate-900">
-                            Gen<span className="text-brand-500">apps</span>
-                        </span>
                     </Link>
                 </div>
 

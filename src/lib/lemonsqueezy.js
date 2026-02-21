@@ -8,19 +8,16 @@ const STORE_ID = import.meta.env.VITE_LEMONSQUEEZY_STORE_ID || 'your-store-id';
 
 // Map plan names to Lemon Squeezy variant IDs
 const VARIANT_IDS = {
-    starter_monthly: import.meta.env.VITE_LS_STARTER_MONTHLY || 'variant-starter-monthly',
-    starter_annual: import.meta.env.VITE_LS_STARTER_ANNUAL || 'variant-starter-annual',
-    pro_monthly: import.meta.env.VITE_LS_PRO_MONTHLY || 'variant-pro-monthly',
-    pro_annual: import.meta.env.VITE_LS_PRO_ANNUAL || 'variant-pro-annual',
-    business_monthly: import.meta.env.VITE_LS_BUSINESS_MONTHLY || 'variant-business-monthly',
-    business_annual: import.meta.env.VITE_LS_BUSINESS_ANNUAL || 'variant-business-annual',
+    starter_monthly: import.meta.env.VITE_LS_STARTER_MONTHLY,
+    pro_monthly: import.meta.env.VITE_LS_PRO_MONTHLY,
+    business_monthly: import.meta.env.VITE_LS_BUSINESS_MONTHLY,
 };
 
 /**
  * Check if running in demo mode (variant IDs are placeholders)
  */
 export function isDemoMode() {
-    return Object.values(VARIANT_IDS).every(v => v.startsWith('variant-'));
+    return Object.values(VARIANT_IDS).some(v => !v || v.startsWith('variant-'));
 }
 
 let lemonSqueezyLoaded = false;

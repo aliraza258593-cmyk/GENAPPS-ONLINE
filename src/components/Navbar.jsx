@@ -55,14 +55,15 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-2.5 group">
                         <div className="relative">
-                            <div className="absolute inset-0 bg-brand-400/20 rounded-xl blur-lg group-hover:bg-brand-400/30 transition-all" />
-                            <div className="relative w-9 h-9 bg-gradient-to-br from-brand-400 via-brand-500 to-lavender-500 rounded-xl flex items-center justify-center shadow-btn">
-                                <Rocket className="h-4.5 w-4.5 text-white" />
-                            </div>
+                            <div className="absolute inset-0 bg-slate-400/10 rounded-xl blur-lg group-hover:bg-slate-400/20 transition-all" />
+                            <img src="/logo.svg" alt="Genapps" className="relative w-9 h-9 rounded-xl object-contain" />
                         </div>
-                        <span className="text-lg font-bold font-display text-slate-900">
-                            Gen<span className="gradient-text">apps</span>
-                        </span>
+                        <div className="flex flex-col">
+                            <span className="text-lg font-bold font-display text-slate-900 leading-tight">
+                                Gen<span className="gradient-text">apps</span>
+                            </span>
+                            <span className="text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase hidden sm:block leading-none">Prompt to Platform</span>
+                        </div>
                     </Link>
 
                     {/* Desktop Nav */}

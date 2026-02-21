@@ -10,7 +10,7 @@ const plans = [
         name: 'Starter',
         id: 'starter',
         icon: Zap,
-        price: { monthly: 19, annual: 15 },
+        price: 19,
         description: 'Perfect for side projects and personal sites.',
         gradient: 'from-blue-500 to-cyan-500',
         features: [
@@ -28,7 +28,7 @@ const plans = [
         name: 'Pro',
         id: 'pro',
         icon: Sparkles,
-        price: { monthly: 49, annual: 39 },
+        price: 49,
         description: 'For startups and businesses that mean business.',
         gradient: 'from-brand-500 to-lavender-500',
         features: [
@@ -48,7 +48,7 @@ const plans = [
         name: 'Business',
         id: 'business',
         icon: Crown,
-        price: { monthly: 99, annual: 79 },
+        price: 99,
         description: 'Full-stack apps with database and auth.',
         gradient: 'from-orange-500 to-red-500',
         features: [
@@ -83,10 +83,6 @@ const faqs = [
     {
         q: 'Will I be charged tax?',
         a: 'Tax (VAT/GST/Sales Tax) is calculated automatically based on your location and is handled by Lemon Squeezy, our Merchant of Record.',
-    },
-    {
-        q: 'Can I switch between monthly and annual billing?',
-        a: 'Yes! You can switch at any time. When upgrading to annual, you\'ll receive a prorated credit for the remainder of your current monthly billing period.',
     },
     {
         q: 'Do I own the generated code?',
@@ -139,7 +135,6 @@ function FaqItem({ q, a }) {
 }
 
 export default function Pricing() {
-    const [annual, setAnnual] = useState(false);
     const [loadingPlan, setLoadingPlan] = useState(null);
     const { subscription, user, isAuthenticated } = useAuth();
     const navigate = useNavigate();
@@ -155,14 +150,14 @@ export default function Pricing() {
 
         setLoadingPlan(plan.id);
         try {
-            const result = await openCheckout(plan.id, annual, {
+            const result = await openCheckout(plan.id, false, {
                 email: user?.email,
                 name: user?.user_metadata?.name,
                 userId: user?.id,
             });
 
             if (result.demo) {
-                showInfo(`Checkout for ${plan.name} (${annual ? 'Annual' : 'Monthly'}) is in demo mode. Configure your Lemon Squeezy variant IDs in .env to enable real checkout.`);
+                showInfo(`Checkout for ${plan.name} is in demo mode. Configure your Lemon Squeezy variant IDs in .env to enable real checkout.`);
             }
         } catch (err) {
             console.error('Checkout error:', err);
@@ -195,24 +190,6 @@ export default function Pricing() {
                     <p className="section-subtitle">
                         Start free. Upgrade when you're ready. No hidden fees, no surprises.
                     </p>
-
-                    {/* Toggle */}
-                    <div className="flex items-center justify-center mt-8 space-x-4">
-                        <span className={`text-sm font-medium ${!annual ? 'text-slate-900' : 'text-slate-400'}`}>Monthly</span>
-                        <button
-                            onClick={() => setAnnual(!annual)}
-                            className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${annual ? 'bg-brand-500' : 'bg-slate-300'
-                                }`}
-                        >
-                            <div className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 ${annual ? 'translate-x-7' : 'translate-x-0'
-                                }`} />
-                        </button>
-                        <span className={`text-sm font-medium ${annual ? 'text-slate-900' : 'text-slate-400'}`}>
-                            Annual
-                            <span className="ml-2 text-xs text-emerald-500 font-semibold">Save 20%</span>
-                        </span>
-                    </div>
-
                     {/* What You Get */}
                     <div className="mt-10 mb-12 max-w-3xl mx-auto">
                         <div className="glass-card p-6 sm:p-8">
@@ -274,15 +251,10 @@ export default function Pricing() {
                                 <div className="mb-8">
                                     <div className="flex items-baseline">
                                         <span className="text-5xl font-extrabold text-slate-900 font-display">
-                                            <AnimatedPrice value={annual ? plan.price.annual : plan.price.monthly} />
+                                            <AnimatedPrice value={plan.price} />
                                         </span>
                                         <span className="text-slate-400 ml-2">/month</span>
                                     </div>
-                                    {annual && (
-                                        <p className="text-xs text-emerald-500 mt-1">
-                                            Billed annually (${plan.price.annual * 12}/year)
-                                        </p>
-                                    )}
                                 </div>
 
                                 {/* CTA */}

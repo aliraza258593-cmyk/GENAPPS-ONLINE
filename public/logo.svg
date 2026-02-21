@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8BA4B8"/>
+      <stop offset="30%" style="stop-color:#A8C4D8"/>
+      <stop offset="50%" style="stop-color:#C8D8E8"/>
+      <stop offset="70%" style="stop-color:#98B8D0"/>
+      <stop offset="100%" style="stop-color:#6888A0"/>
+    </linearGradient>
+    <linearGradient id="innerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7090A8"/>
+      <stop offset="50%" style="stop-color:#A0BCD0"/>
+      <stop offset="100%" style="stop-color:#607888"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#90A8C0"/>
+      <stop offset="100%" style="stop-color:#B8D0E0"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer circle ring -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#metalGrad)" stroke-width="18" stroke-linecap="round" stroke-dasharray="480 85" transform="rotate(-45 100 100)"/>
+  <!-- Inner G shape - the horizontal bar -->
+  <path d="M 105 100 L 155 100" stroke="url(#arrowGrad)" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <!-- Inner circle arc -->
+  <circle cx="100" cy="100" r="50" fill="none" stroke="url(#innerGrad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="200 115" transform="rotate(45 100 100)"/>
+  <!-- Arrow tip on the G opening -->
+  <polygon points="42,48 58,30 58,52" fill="url(#metalGrad)" transform="rotate(-5 50 40)"/>
+</svg>

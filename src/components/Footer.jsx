@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Rocket, ArrowUp, Mail, ArrowRight, Heart, ExternalLink, Lock, CreditCard } from 'lucide-react';
+import { ArrowUp, Mail, ArrowRight, Heart, ExternalLink, Lock, CreditCard } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const footerLinks = {
@@ -72,12 +72,13 @@ export default function Footer() {
                     {/* Brand + Newsletter */}
                     <div className="lg:col-span-4">
                         <Link to="/" className="flex items-center space-x-2 mb-4 group">
-                            <div className="bg-gradient-to-r from-brand-500 to-lavender-500 p-1.5 rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
-                                <Rocket className="h-4 w-4 text-white" />
+                            <img src="/logo.svg" alt="Genapps" className="w-8 h-8 rounded-xl object-contain" />
+                            <div className="flex flex-col">
+                                <span className="font-display font-bold text-lg text-slate-900 leading-tight">
+                                    Gen<span className="gradient-text">apps</span>
+                                </span>
+                                <span className="text-[8px] font-semibold tracking-[0.2em] text-slate-400 uppercase leading-none">Prompt to Platform</span>
                             </div>
-                            <span className="font-display font-bold text-lg text-slate-900">
-                                Gen<span className="gradient-text">apps</span>
-                            </span>
                         </Link>
                         <p className="text-sm text-slate-500 mb-6 max-w-xs leading-relaxed">
                             AI-powered website builder. Describe your idea, get a production-ready website in seconds. No coding required.
